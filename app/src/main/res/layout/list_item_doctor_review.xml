@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:id="@+id/cardview"
+    android:layout_gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_marginBottom="@dimen/_2sdp"
+    android:layout_height="wrap_content"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    app:cardBackgroundColor="@color/colorWhite"
+    card_view:cardCornerRadius="0dp"
+    app:cardElevation="0dp"
+    app:cardCornerRadius="0dp"
+    card_view:contentPadding="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_pat_pic"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_margin="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            tools:src="@drawable/img_doctor_dummy"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_pat_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/oswald_regular"
+            android:gravity="start"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_date"
+            app:layout_constraintStart_toEndOf="@+id/civ_pat_pic"
+            app:layout_constraintTop_toTopOf="@+id/civ_pat_pic"
+            app:textAllCaps="false"
+            tools:text="John Wick" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_review"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/open_sans_light"
+            android:maxLines="2"
+            tools:text="Excellent service"
+            android:textColor="@color/colorGrey"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_date"
+            app:layout_constraintStart_toStartOf="@+id/tv_pat_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_pat_name" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:fontFamily="@font/open_sans_light"
+            android:textColor="@color/colorTurquoise"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_review"
+            tools:text="09-11-2020" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="#c8c8c8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_date" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_marginBottom="@dimen/_5sdp"
+            app:layout_constraintBottom_toTopOf="@+id/view2"
+            app:layout_constraintEnd_toEndOf="@+id/tv_date" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

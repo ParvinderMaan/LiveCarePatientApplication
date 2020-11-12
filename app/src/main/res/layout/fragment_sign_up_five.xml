@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".signup.view.SignUpFiveFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_label_one"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:fontFamily="@font/oswald_medium"
+        android:gravity="start"
+        android:maxLines="1"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:text="@string/title_gender"
+        android:textAllCaps="true"
+        android:textColor="@color/colorGreen"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toTopOf="@+id/guideline_top" />
+
+
+    <Button
+        android:id="@+id/btn_continue"
+        style="@style/ButtonStyleI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_60sdp"
+        android:gravity="center"
+        android:minHeight="0dp"
+        android:paddingStart="@dimen/_15sdp"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_15sdp"
+        android:paddingBottom="@dimen/_8sdp"
+        android:text="@string/action_continue"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        app:backgroundTint="@color/colorGreen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_back"
+        app:layout_constraintTop_toBottomOf="@+id/ll_female"
+        app:rippleColor="@color/colorWhite" />
+
+
+    <Button
+        android:id="@+id/btn_back"
+        style="@style/ButtonStyleI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:gravity="center"
+        android:minHeight="0dp"
+        android:paddingStart="@dimen/_25sdp"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_25sdp"
+        android:paddingBottom="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_60sdp"
+        android:text="@string/action_back"
+        android:textAllCaps="true"
+        android:textColor="@color/colorGreen"
+        app:backgroundTint="@color/colorWhite"
+        app:layout_constraintEnd_toStartOf="@+id/btn_continue"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_female"
+        app:rippleColor="@color/colorGreen"
+        app:strokeColor="@color/colorGreen"
+        app:strokeWidth="1dp" />
+
+    <LinearLayout
+        android:id="@+id/ll_male"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:background="@drawable/selector_gender_i"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/_12sdp"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_12sdp"
+        android:paddingBottom="@dimen/_8sdp"
+        app:layout_constraintStart_toStartOf="@+id/tv_label_one"
+        app:layout_constraintTop_toBottomOf="@+id/tv_label_one">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/selector_gender_ii" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:text="@string/title_male"
+            android:textColor="@drawable/selector_gender_iii" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_female"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_gender_i"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/_12sdp"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_12sdp"
+        android:paddingBottom="@dimen/_8sdp"
+        app:layout_constraintEnd_toStartOf="@+id/ll_other"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ll_male"
+        app:layout_constraintTop_toBottomOf="@+id/tv_label_one">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/selector_gender_ii" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:text="@string/title_female"
+            android:textColor="@drawable/selector_gender_iii" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_other"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingStart="@dimen/_12sdp"
+        android:paddingEnd="@dimen/_12sdp"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingBottom="@dimen/_8sdp"
+        android:background="@drawable/selector_gender_i"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ll_female"
+        app:layout_constraintTop_toBottomOf="@+id/tv_label_one">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_other"
+            android:src="@drawable/selector_gender_ii"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:text="@string/title_other"
+            android:textColor="@drawable/selector_gender_iii" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/_16sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/_16sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/_16sdp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

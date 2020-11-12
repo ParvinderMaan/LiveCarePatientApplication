@@ -1,0 +1,90 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.app.patlivecare"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.1'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    // coroutine
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.5'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5'
+    // fragments
+    implementation 'androidx.fragment:fragment-ktx:1.2.5'
+    // tablet support
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    // design
+    implementation 'com.google.android.material:material:1.2.0'
+    // circular imageview
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    //paging
+    implementation 'androidx.paging:paging-runtime:2.1.2'
+    //custom calendar
+    implementation 'com.github.prolificinteractive:material-calendarview:2.0.1'
+    // full replacement for the ailing Date and Calendar APIs
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.2.1'
+    // networking
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
+    // logger
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.3.1'
+    // glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    // country code picker
+    implementation 'com.hbb20:ccp:2.4.0'
+    //view model
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    //runtime permission
+    implementation 'com.karumi:dexter:5.0.0'
+    //image cropping
+    implementation 'com.github.yalantis:ucrop:2.2.2'
+    // zoomable imageview
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+     //google signin
+    implementation 'com.google.android.gms:play-services-auth:18.1.0'
+    //fb signin
+    implementation 'com.facebook.android:facebook-login:5.15.3'
+    //video call
+    implementation 'com.opentok.android:opentok-android-sdk:2.18.0'
+    //Rxjava
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.7'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
+
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+}

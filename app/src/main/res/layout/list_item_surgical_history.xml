@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:id="@+id/cardview"
+    android:layout_gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_16sdp"
+    android:layout_marginEnd="@dimen/_16sdp"
+    android:layout_marginBottom="@dimen/_8sdp"
+    android:layout_marginTop="@dimen/_8sdp"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    app:cardBackgroundColor="#f4f8f9"
+    card_view:cardCornerRadius="10dp"
+    app:cardElevation="1dp"
+    app:cardCornerRadius="10dp"
+    card_view:contentPadding="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_16sdp"
+        android:paddingBottom="@dimen/_8sdp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:gravity="center"
+            android:maxLines="1"
+            style="@style/ToolBarTitleStyle"
+            android:text="Treatment Name :"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias=".05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textAllCaps="true" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:maxLines="1"
+            style="@style/ToolBarTitleStyle"
+            android:text="Doctor Name :"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/appCompatTextView2"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatTextView2"
+            app:textAllCaps="true" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:maxLines="1"
+            style="@style/ToolBarTitleStyle"
+            android:text="Date :"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/appCompatTextView3"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatTextView3"
+            app:textAllCaps="true" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView5"
+            style="@style/ToolBarTitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="Notes :"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/appCompatTextView4"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatTextView4"
+            app:textAllCaps="true" />
+
+        <ImageView
+            android:id="@+id/iv_more"
+            android:layout_width="wrap_content"
+            android:padding="@dimen/_5sdp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/appCompatTextView2"
+            app:srcCompat="@drawable/ic_more_black" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_treatment_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:maxLines="1"
+            android:text="Tuberclosis"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView2"
+            app:layout_constraintEnd_toStartOf="@+id/imageView8"
+            app:layout_constraintHorizontal_bias=".05"
+            app:layout_constraintStart_toEndOf="@+id/appCompatTextView2"
+            app:layout_constraintTop_toTopOf="@+id/appCompatTextView2"
+            app:textAllCaps="false" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_doctor_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:maxLines="1"
+            android:text="Dr John Wick"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView3"
+            app:layout_constraintEnd_toStartOf="@+id/iv_more"
+            app:layout_constraintHorizontal_bias=".05"
+            app:layout_constraintStart_toStartOf="@+id/tv_treatment_name"
+            app:layout_constraintTop_toTopOf="@+id/appCompatTextView3"
+            app:textAllCaps="false" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:maxLines="1"
+            android:text="11/12/2000"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView4"
+            app:layout_constraintEnd_toStartOf="@+id/iv_more"
+            app:layout_constraintHorizontal_bias=".05"
+            app:layout_constraintStart_toStartOf="@+id/tv_doctor_name"
+            app:layout_constraintTop_toTopOf="@+id/appCompatTextView4"
+            app:textAllCaps="false" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_notes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Curd may contain a wide variety of bacteria like Lactobacillus acidophilus, Lactococcus lactis, Lactococcus lactis cremoris etc, whereas yoghurt contains Streptococcus thermophillus and Lactobacillus bulgaricus. Can the number of"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/iv_more"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/appCompatTextView5"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatTextView5"
+            app:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/tv_more_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_5sdp"
+            android:text="More"
+            android:textSize="10sp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:textColor="@color/colorTurquoise"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_notes" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

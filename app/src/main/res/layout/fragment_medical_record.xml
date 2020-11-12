@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".medicalrecord.view.MedicalRecordFragment">
+
+    <View
+        android:id="@+id/view_one"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_80sdp"
+        tools:targetApi="m"
+        android:foreground="?attr/selectableItemBackground"
+        android:background="@drawable/background_edit_text_ii"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toTopOf="@+id/guideline_top"
+         />
+
+    <View
+        android:id="@+id/view_two"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:foreground="?attr/selectableItemBackground"
+        android:background="@drawable/background_edit_text_ii"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@+id/view_one" />
+
+    <View
+        android:id="@+id/view_three"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:foreground="?attr/selectableItemBackground"
+        android:background="@drawable/background_edit_text_ii"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@+id/view_two" />
+
+    <View
+        android:id="@+id/view_four"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:foreground="?attr/selectableItemBackground"
+        android:background="@drawable/background_edit_text_ii"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@+id/view_three" />
+
+    <View
+        android:id="@+id/view_five"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:foreground="?attr/selectableItemBackground"
+        android:background="@drawable/background_edit_text_ii"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@+id/view_four" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/_16sdp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/_16sdp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="@dimen/_16sdp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/_16sdp" />
+
+    <TextView
+        android:id="@+id/tv_past_medical_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/oswald_regular"
+        android:text="@string/title_past_medical_history"
+        android:textAllCaps="true"
+        android:textColor="@color/colorTurquoise"
+        app:layout_constraintBottom_toBottomOf="@+id/view_one"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintHorizontal_bias=".4"
+        app:layout_constraintStart_toStartOf="@+id/view_one"
+        app:layout_constraintTop_toTopOf="@+id/view_one" />
+
+    <TextView
+        android:id="@+id/tv_surgical_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/oswald_regular"
+        android:text="@string/title_surgical_history"
+        android:textAllCaps="true"
+        android:textColor="@color/colorTurquoise"
+        app:layout_constraintBottom_toBottomOf="@+id/view_two"
+        app:layout_constraintStart_toStartOf="@+id/tv_past_medical_history"
+        app:layout_constraintTop_toTopOf="@+id/view_two" />
+
+    <TextView
+        android:id="@+id/tv_family_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/oswald_regular"
+        android:text="@string/title_family_history"
+        android:textAllCaps="true"
+        android:textColor="@color/colorTurquoise"
+        app:layout_constraintBottom_toBottomOf="@+id/view_three"
+        app:layout_constraintStart_toStartOf="@+id/tv_past_medical_history"
+        app:layout_constraintTop_toTopOf="@+id/view_three" />
+
+
+    <TextView
+        android:id="@+id/tv_allergy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/oswald_regular"
+        android:text="@string/title_allergy"
+        android:textAllCaps="true"
+        android:textColor="@color/colorTurquoise"
+        app:layout_constraintBottom_toBottomOf="@+id/view_four"
+        app:layout_constraintStart_toStartOf="@+id/tv_past_medical_history"
+        app:layout_constraintTop_toTopOf="@+id/view_four" />
+
+    <TextView
+        android:id="@+id/tv_attachment_and_reports"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/oswald_regular"
+        android:text="@string/title_attachment_and_reports"
+        android:textAllCaps="true"
+        android:textColor="@color/colorTurquoise"
+        app:layout_constraintBottom_toBottomOf="@+id/view_five"
+        app:layout_constraintStart_toStartOf="@+id/tv_past_medical_history"
+        app:layout_constraintTop_toTopOf="@+id/view_five" />
+
+    <ImageView
+        android:id="@+id/iv_past_medical_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_medical_history"
+        app:layout_constraintBottom_toBottomOf="@+id/view_one"
+        app:layout_constraintEnd_toStartOf="@+id/tv_past_medical_history"
+        app:layout_constraintStart_toStartOf="@+id/view_one"
+        app:layout_constraintTop_toTopOf="@+id/view_one" />
+
+    <ImageView
+        android:id="@+id/iv_surgical_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_surgical_history"
+        app:layout_constraintBottom_toBottomOf="@+id/view_two"
+        app:layout_constraintEnd_toStartOf="@+id/tv_past_medical_history"
+        app:layout_constraintStart_toStartOf="@+id/view_one"
+        app:layout_constraintTop_toTopOf="@+id/view_two" />
+
+    <ImageView
+        android:id="@+id/iv_family_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_family_history"
+        app:layout_constraintBottom_toBottomOf="@+id/view_three"
+        app:layout_constraintEnd_toStartOf="@+id/tv_past_medical_history"
+        app:layout_constraintStart_toStartOf="@+id/view_one"
+        app:layout_constraintTop_toTopOf="@+id/view_three" />
+
+    <ImageView
+        android:id="@+id/iv_allergy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_allergy"
+        app:layout_constraintBottom_toBottomOf="@+id/view_four"
+        app:layout_constraintEnd_toStartOf="@+id/tv_past_medical_history"
+        app:layout_constraintStart_toStartOf="@+id/view_one"
+        app:layout_constraintTop_toTopOf="@+id/view_four" />
+
+    <ImageView
+        android:id="@+id/iv_attachment_and_reports"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_attachment_and_reports"
+        app:layout_constraintBottom_toBottomOf="@+id/view_five"
+        app:layout_constraintEnd_toStartOf="@+id/tv_past_medical_history"
+        app:layout_constraintStart_toStartOf="@+id/view_one"
+        app:layout_constraintTop_toTopOf="@+id/view_five" />
+
+
+    <ImageButton
+        android:id="@+id/ibtn_past_medical_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:padding="@dimen/_5sdp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_arrow_right_"
+        app:layout_constraintBottom_toBottomOf="@+id/view_one"
+        app:layout_constraintEnd_toEndOf="@+id/view_one"
+        app:layout_constraintTop_toTopOf="@+id/view_one" />
+
+    <ImageButton
+        android:id="@+id/ibtn_surgical_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:background="@android:color/transparent"
+        android:padding="@dimen/_5sdp"
+        android:src="@drawable/ic_arrow_right_"
+        app:layout_constraintBottom_toBottomOf="@+id/view_two"
+        app:layout_constraintEnd_toEndOf="@+id/view_one"
+        app:layout_constraintTop_toTopOf="@+id/view_two" />
+
+
+    <ImageButton
+        android:id="@+id/ibtn_family_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:background="@android:color/transparent"
+        android:padding="@dimen/_5sdp"
+        android:src="@drawable/ic_arrow_right_"
+        app:layout_constraintBottom_toBottomOf="@+id/view_three"
+        app:layout_constraintEnd_toEndOf="@+id/view_one"
+        app:layout_constraintTop_toTopOf="@+id/view_three" />
+
+    <ImageButton
+        android:id="@+id/ibtn_allergy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:background="@android:color/transparent"
+        android:padding="@dimen/_5sdp"
+        android:src="@drawable/ic_arrow_right_"
+        app:layout_constraintBottom_toBottomOf="@+id/view_four"
+        app:layout_constraintEnd_toEndOf="@+id/view_one"
+        app:layout_constraintTop_toTopOf="@+id/view_four" />
+
+    <ImageButton
+        android:id="@+id/ibtn_attachment_and_reports"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:background="@android:color/transparent"
+        android:padding="@dimen/_5sdp"
+        android:src="@drawable/ic_arrow_right_"
+        app:layout_constraintBottom_toBottomOf="@+id/view_five"
+        app:layout_constraintEnd_toEndOf="@+id/view_one"
+        app:layout_constraintTop_toTopOf="@+id/view_five" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

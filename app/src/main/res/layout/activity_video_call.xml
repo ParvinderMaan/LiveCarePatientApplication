@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/cl_root"
+    tools:context=".videocall.view.VideoCallActivity">
+
+    <!--     subscriber layout -->
+    <FrameLayout
+        android:id="@+id/fl_subscriber_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <!--     publisher layout -->
+    <FrameLayout
+        android:id="@+id/fl_publisher_container"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_120sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        app:layout_constraintBottom_toTopOf="@+id/iv_start_end_call"
+        app:layout_constraintEnd_toEndOf="parent" />
+    <androidx.constraintlayout.widget.Group
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:constraint_referenced_ids="fl_subscriber_container,fl_publisher_container"
+        android:id="@+id/group_surface" />
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_waiting_prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/call_is_in_progress"
+        android:textAlignment="center"
+        android:visibility="invisible"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_call_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_white_ii"
+        android:paddingStart="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_20sdp"
+        android:paddingBottom="@dimen/_8sdp"
+        android:text="00:00"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
+        android:fontFamily="@font/open_sans_regular"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_switch_camera"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iv_switch_camera" />
+    <ImageView
+        android:id="@+id/iv_switch_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:background="@drawable/background_white"
+        android:padding="@dimen/_10sdp"
+        android:src="@drawable/ic_camera"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/iv_medical_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_white"
+        android:padding="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_30sdp"
+        android:src="@drawable/ic_medical_record"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_start_end_call"
+        app:layout_constraintEnd_toStartOf="@+id/iv_start_end_call" />
+    <ImageView
+        android:id="@+id/iv_start_end_call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_white"
+        android:padding="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:src="@drawable/ic_call_end"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    <ImageView
+        android:id="@+id/iv_switch_voice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_white"
+        android:padding="@dimen/_10sdp"
+        android:src="@drawable/ic_mute"
+        android:layout_marginStart="@dimen/_30sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_start_end_call"
+        app:layout_constraintStart_toEndOf="@+id/iv_start_end_call" />
+    <androidx.constraintlayout.widget.Group
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:constraint_referenced_ids="tv_call_duration,iv_switch_camera,iv_medical_record,iv_start_end_call,iv_switch_voice"
+        android:id="@+id/group_controls" />
+</androidx.constraintlayout.widget.ConstraintLayout>

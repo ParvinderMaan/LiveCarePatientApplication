@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageView5"
+        android:scaleType="centerCrop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg_navigation" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_pat_pic"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_gravity="center"
+        android:src="@drawable/img_doctor_dummy"
+        app:civ_border_color="@color/colorWhite"
+        app:civ_border_width="@dimen/_2sdp"
+        app:layout_constraintHorizontal_bias=".15"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_pat_name"
+        style="@style/ToolBarTitleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Henry Tods"
+        android:layout_marginStart="@dimen/_8sdp"
+        app:layout_constraintVertical_bias=".25"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_pat_pic"
+        app:layout_constraintStart_toEndOf="@+id/iv_pat_pic"
+        app:layout_constraintTop_toTopOf="@+id/iv_pat_pic" />
+
+    <TextView
+        android:id="@+id/tv_pat_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="California,Usa"
+        android:textColor="@color/colorWhite"
+        android:textSize="14sp"
+        android:fontFamily="@font/open_sans_light"
+        app:layout_constraintStart_toStartOf="@+id/tv_pat_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_pat_name" />
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="#94DAD9D9"
+        tools:layout_editor_absoluteX="6dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

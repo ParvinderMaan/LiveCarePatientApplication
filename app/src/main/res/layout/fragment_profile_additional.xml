@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".profile.view.ProfileAdditionalFragment"
+    android:layout_width="match_parent"
+    android:id="@+id/fl_root"
+    android:layout_height="match_parent">
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        style="?android:attr/progressBarStyle" />
+    <ScrollView
+        android:id="@+id/sv_main"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_16sdp"
+        android:layout_width="match_parent"
+        android:visibility="invisible"
+        android:scrollbars="none"
+        android:fillViewport="true"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/ll_content"
+            android:paddingTop="@dimen/_16sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="@string/title_height"
+                android:paddingStart="@dimen/_8sdp"
+                android:fontFamily="@font/oswald_regular"
+                android:textColor="@color/colorLightBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edt_height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:enabled="false"
+                android:focusable="false"
+                android:cursorVisible="false"
+                android:maxLength="30"
+                app:backgroundTint="#D3D3D3"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:text=""
+                android:textColor="@color/colorLightBlack"
+                android:textAppearance="@style/EditTextStyleI"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                app:layout_constraintTop_toTopOf="@+id/guideline_top" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="@string/title_weight"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:paddingStart="@dimen/_8sdp"
+                android:fontFamily="@font/oswald_regular"
+                android:textColor="@color/colorLightBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edt_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                app:backgroundTint="#D3D3D3"
+                android:enabled="false"
+                android:focusable="false"
+                android:cursorVisible="false"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:textColor="@color/colorLightBlack"
+                android:maxLength="30"
+
+                android:text=""
+                android:textAppearance="@style/EditTextStyleI"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                app:layout_constraintTop_toTopOf="@+id/guideline_top" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="@string/title_blood_group"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:paddingStart="@dimen/_8sdp"
+                android:fontFamily="@font/oswald_regular"
+                android:textColor="@color/colorLightBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edt_blood_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                app:backgroundTint="#D3D3D3"
+                android:enabled="false"
+                android:focusable="false"
+                android:cursorVisible="false"
+                android:textColor="@color/colorLightBlack"
+                android:maxLength="30"
+
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:text=""
+                android:textAppearance="@style/EditTextStyleI"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                app:layout_constraintTop_toTopOf="@+id/guideline_top" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="@string/title_vegetarian"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:paddingStart="@dimen/_8sdp"
+                android:fontFamily="@font/oswald_regular"
+                android:textColor="@color/colorLightBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edt_vegetarian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                app:backgroundTint="#D3D3D3"
+                android:enabled="false"
+                android:focusable="false"
+                android:cursorVisible="false"
+                android:textColor="@color/colorLightBlack"
+                android:maxLength="30"
+
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:text=""
+                android:textAppearance="@style/EditTextStyleI"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                app:layout_constraintTop_toTopOf="@+id/guideline_top" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="@string/title_smoking"
+                android:paddingStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:fontFamily="@font/oswald_regular"
+                android:textColor="@color/colorLightBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edt_smoke"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:maxLength="30"
+                android:textColor="@color/colorLightBlack"
+                android:enabled="false"
+                android:focusable="false"
+                android:cursorVisible="false"
+                app:backgroundTint="#D3D3D3"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:text=""
+                android:textAppearance="@style/EditTextStyleI"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                app:layout_constraintTop_toTopOf="@+id/guideline_top" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="@string/title_alcohol"
+                android:paddingStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:fontFamily="@font/oswald_regular"
+                android:textColor="@color/colorLightBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edt_alcohol"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:maxLength="30"
+                android:enabled="false"
+                android:focusable="false"
+                android:cursorVisible="false"
+                app:backgroundTint="#D3D3D3"
+                android:textColor="@color/colorLightBlack"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:text=""
+                android:textAppearance="@style/EditTextStyleI"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                app:layout_constraintTop_toTopOf="@+id/guideline_top" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="@string/title_drugs"
+                android:paddingStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:fontFamily="@font/oswald_regular"
+                android:textColor="@color/colorLightBlack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edt_drug"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:maxLength="30"
+                android:enabled="false"
+                app:backgroundTint="#D3D3D3"
+                android:focusable="false"
+                android:cursorVisible="false"
+                android:textColor="@color/colorLightBlack"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:text=""
+                android:textAppearance="@style/EditTextStyleI"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                app:layout_constraintTop_toTopOf="@+id/guideline_top" />
+
+            <Button
+                android:id="@+id/btn_edit"
+                style="@style/ButtonStyleI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:gravity="center"
+                android:minHeight="0dp"
+                android:paddingStart="@dimen/_30sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_30sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:text="@string/action_edit"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                app:backgroundTint="@color/colorGreen"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btn_back"
+                app:layout_constraintTop_toBottomOf="@+id/edt_phone_no"
+                app:rippleColor="@color/colorWhite" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</FrameLayout>
+

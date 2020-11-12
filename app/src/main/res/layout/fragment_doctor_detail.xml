@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/cl_root"
+    tools:context=".doctor.view.DoctorDetailFragment">
+    <!--    body-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/img_doctor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_profile"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_32sdp"
+            app:civ_border_color="@color/colorWhite"
+            app:civ_border_width="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias=".1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/img_doctor_dummy" />
+
+        <TextView
+            android:id="@+id/tv_doc_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:fontFamily="@font/oswald_regular"
+            android:includeFontPadding="false"
+            android:textAllCaps="true"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/civ_profile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/civ_profile"
+            app:layout_constraintTop_toTopOf="@+id/civ_profile"
+            app:layout_constraintVertical_bias=".25"
+            tools:text="Dr. William Jones" />
+
+        <TextView
+            android:id="@+id/tv_speciality"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_light"
+            android:textColor="@color/colorWhite"
+            android:textSize="14sp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_doc_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_doc_name"
+            tools:text="Dentist" />
+
+        <TextView
+            android:id="@+id/tv_is_verified"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:drawableStart="@drawable/ic_tick_black"
+            android:drawablePadding="@dimen/_2sdp"
+            android:drawableTint="@color/colorWhite"
+            android:fontFamily="@font/open_sans_light"
+            android:text="Verified"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_speciality"
+            app:layout_constraintTop_toBottomOf="@+id/tv_speciality" />
+
+
+        <TextView
+            android:id="@+id/tv_review_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/oswald_regular"
+            android:includeFontPadding="false"
+            android:text="  REVIEWS"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias=".9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/civ_profile" />
+
+        <ImageView
+            android:id="@+id/iv_star_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_1sdp"
+            android:tint="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_star_two"
+            app:layout_constraintEnd_toStartOf="@+id/iv_star_two"
+            app:srcCompat="@drawable/ic_star_on_yellow" />
+
+        <ImageView
+            android:id="@+id/iv_star_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_1sdp"
+            android:tint="@color/colorWhite"
+            app:layout_constraintBottom_toTopOf="@+id/tv_review_count"
+            app:layout_constraintEnd_toStartOf="@+id/iv_star_three"
+            app:srcCompat="@drawable/ic_star_on_yellow" />
+
+        <ImageView
+            android:id="@+id/iv_star_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:padding="@dimen/_1sdp"
+            android:tint="@color/colorWhite"
+            app:layout_constraintBottom_toTopOf="@+id/tv_review_count"
+            app:layout_constraintEnd_toEndOf="@+id/tv_review_count"
+            app:layout_constraintStart_toStartOf="@+id/tv_review_count"
+            app:srcCompat="@drawable/ic_star_on_yellow" />
+
+        <ImageView
+            android:id="@+id/iv_star_four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_1sdp"
+            android:tint="@color/colorWhite"
+            app:layout_constraintBottom_toTopOf="@+id/tv_review_count"
+            app:layout_constraintStart_toEndOf="@+id/iv_star_three"
+            app:srcCompat="@drawable/ic_star_off_yellow" />
+
+        <ImageView
+            android:id="@+id/iv_star_five"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_1sdp"
+            android:tint="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_star_four"
+            app:layout_constraintStart_toEndOf="@+id/iv_star_four"
+            app:srcCompat="@drawable/ic_star_off_yellow" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:fontFamily="@font/oswald_regular"
+            android:includeFontPadding="false"
+            android:text="@string/title_about_me"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/civ_profile"
+            app:layout_constraintTop_toBottomOf="@+id/tv_review_count" />
+
+        <TextView
+            android:id="@+id/tv_about_me"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:fontFamily="@font/open_sans_light"
+            android:includeFontPadding="false"
+            android:maxLines="5"
+            android:paddingBottom="@dimen/_8sdp"
+            android:textAllCaps="false"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView12"
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
+            tools:text="Hippocrates was a great doctor of ancient Greece. Through his careful examination of patients, treatments and success rates, he was able to vastly improve his medical treatment. Hippocrates built up one of the great libraries of medical science in Kos. He is also credited with the Hippocratic oath which is still sworn today by medical practitioners.Hippocrates was a great doctor of ancient Greece. Through his careful examination of patients, treatments and success rates, he was able to vastly improve his medical treatment. Hippocrates built up one of the great libraries of medical science in Kos. He is also credited with the Hippocratic oath which is still sworn today by medical practitioners." />
+
+        <TextView
+            android:id="@+id/tv_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginBottom="8dp"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/action_more"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_about_me" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        android:id="@+id/sv_main"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:orientation="vertical">
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_education"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                app:cardBackgroundColor="#dceff1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="2dp"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+                tools:contentPadding="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/_8sdp"
+                    android:paddingBottom="@dimen/_8sdp">
+
+                    <TextView
+                        android:id="@+id/textView21"
+                        style="@style/ToolBarTitleStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:fontFamily="@font/oswald_regular"
+                        android:includeFontPadding="false"
+                        android:paddingTop="@dimen/_8sdp"
+                        android:paddingBottom="@dimen/_8sdp"
+                        android:text="@string/title_education"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorTurquoise"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/view_line_one"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/colorWhite"
+                        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+                    <TextView
+                        android:id="@+id/tv_education"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:fontFamily="@font/open_sans_regular"
+                        android:includeFontPadding="false"
+                        android:paddingTop="@dimen/_8sdp"
+                        android:paddingBottom="@dimen/_8sdp"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view_line_one"
+                        tools:text="Masters in Pychology\nBachelors in Pychology\nFellowship in Minimull" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_appointment_fee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                app:cardBackgroundColor="#dceff1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="2dp"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/cv_education"
+                tools:contentPadding="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/_8sdp"
+                    android:paddingBottom="@dimen/_8sdp">
+
+                    <TextView
+                        android:id="@+id/textView211"
+                        style="@style/ToolBarTitleStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:fontFamily="@font/oswald_regular"
+                        android:includeFontPadding="false"
+                        android:paddingTop="@dimen/_8sdp"
+                        android:paddingBottom="@dimen/_8sdp"
+                        android:text="Appointment Fee"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorTurquoise"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/view_line_one_"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/colorWhite"
+                        app:layout_constraintTop_toBottomOf="@+id/textView211" />
+
+                    <TextView
+                        android:id="@+id/tv_appointment_fee"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:includeFontPadding="false"
+                        android:paddingTop="@dimen/_8sdp"
+                        android:paddingBottom="@dimen/_8sdp"
+                        tools:text="$ 101 /-"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="30sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_appointment_" />
+
+                    <TextView
+                        android:id="@+id/tv_appointment_"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:text="@string/title_once_your_appointment_is_confirmed_your_appointment_fee_will_be"
+                        android:textColor="@color/colorBlack"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/textView211"
+                        app:layout_constraintTop_toBottomOf="@+id/view_line_one_" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_language"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                app:cardBackgroundColor="#dceff1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="2dp"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/cv_appointment_fee"
+                tools:contentPadding="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/_8sdp"
+                    android:paddingBottom="@dimen/_8sdp"
+                    tools:layout_editor_absoluteX="40dp"
+                    tools:layout_editor_absoluteY="730dp">
+
+                    <TextView
+                        android:id="@+id/textView23"
+                        style="@style/ToolBarTitleStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:fontFamily="@font/oswald_regular"
+                        android:includeFontPadding="false"
+                        android:paddingTop="@dimen/_8sdp"
+                        android:paddingBottom="@dimen/_8sdp"
+                        android:text="Languages"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorTurquoise"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/view_line_one__"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/colorWhite"
+                        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_language"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:overScrollMode="never"
+                        android:scrollbars="none"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view_line_one__"
+                        tools:itemCount="1"
+                        tools:listitem="@layout/list_item_language" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <View
+                android:id="@+id/view_line___"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@color/colorTurquoise"
+                app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/fbtn_book_appointment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:includeFontPadding="false"
+                android:minHeight="0dp"
+                android:paddingStart="@dimen/_16sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_16sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:text="@string/action_book_appointment"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="10sp"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                app:backgroundTint="@color/colorTurquoise"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/cv_appointment_fee"
+                app:rippleColor="@color/colorWhite" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp" />
+        </LinearLayout>
+
+    </ScrollView>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/ibtn_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_26sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:padding="@dimen/_10sdp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        app:srcCompat="@drawable/ic_close_white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

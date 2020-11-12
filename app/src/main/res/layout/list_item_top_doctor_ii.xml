@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:id="@+id/cardview"
+    android:layout_gravity="center_horizontal"
+    android:layout_width="wrap_content"
+    android:layout_marginStart="@dimen/_4sdp"
+    android:layout_marginEnd="@dimen/_4sdp"
+    android:layout_marginBottom="@dimen/_4sdp"
+    android:layout_marginTop="@dimen/_4sdp"
+    android:layout_height="wrap_content"
+    android:theme="@style/Theme.MaterialComponents.DayNight"
+    app:cardBackgroundColor="@color/colorWhite"
+    card_view:cardCornerRadius="10dp"
+    app:cardElevation="1dp"
+    app:cardCornerRadius="10dp"
+    card_view:contentPadding="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_doc_pic"
+            android:scaleType="fitXY"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_150sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_doc_name"
+            style="@style/ToolBarTitleStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:maxLines="1"
+            android:text="DR. JOHN WICK"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/iv_doc_pic"
+            app:layout_constraintTop_toBottomOf="@+id/iv_doc_pic"
+            app:textAllCaps="true" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_speciality"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:maxLines="1"
+            android:text="Dentist"
+            android:textColor="@color/colorBlack"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_doc_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_doc_name" />
+
+
+        <ImageView
+            android:id="@+id/iv_star_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_doc_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_speciality"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_star_on_yellow" />
+
+        <ImageView
+            android:id="@+id/iv_star_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginStart="@dimen/_2sdp"
+            app:layout_constraintStart_toEndOf="@+id/iv_star_one"
+            app:layout_constraintTop_toBottomOf="@+id/tv_speciality"
+            app:srcCompat="@drawable/ic_star_on_yellow" />
+
+        <ImageView
+            android:id="@+id/iv_star_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginStart="@dimen/_2sdp"
+            app:layout_constraintStart_toEndOf="@+id/iv_star_two"
+            app:layout_constraintTop_toBottomOf="@+id/tv_speciality"
+            app:srcCompat="@drawable/ic_star_on_yellow" />
+
+        <ImageView
+            android:id="@+id/iv_star_four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginStart="@dimen/_2sdp"
+            app:layout_constraintStart_toEndOf="@+id/iv_star_three"
+            app:layout_constraintTop_toBottomOf="@+id/tv_speciality"
+            app:srcCompat="@drawable/ic_star_off_yellow" />
+
+        <ImageView
+            android:id="@+id/iv_star_five"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginStart="@dimen/_2sdp"
+            app:layout_constraintStart_toEndOf="@+id/iv_star_four"
+            app:layout_constraintTop_toBottomOf="@+id/tv_speciality"
+            app:srcCompat="@drawable/ic_star_off_yellow" />
+
+        <Button
+            android:id="@+id/btn_book_now"
+            style="@style/ButtonStyleIII"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:text="@string/action_book_now"
+            android:clickable="false"
+            android:textAllCaps="true"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:textColor="@color/colorWhite"
+            android:textSize="10sp"
+            android:elevation="0dp"
+            app:backgroundTint="@color/colorTurquoise"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_doc_name"
+            app:layout_constraintTop_toBottomOf="@+id/iv_star_one"
+            app:rippleColor="@color/colorWhite" />
+
+        <androidx.constraintlayout.widget.Group
+            android:layout_width="wrap_content"
+            app:constraint_referenced_ids="iv_star_one,iv_star_two,iv_star_three"
+            android:layout_height="wrap_content">
+
+        </androidx.constraintlayout.widget.Group>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

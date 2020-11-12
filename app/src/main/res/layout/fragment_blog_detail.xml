@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <ScrollView
+        android:id="@+id/cl_root"
+        tools:context=".blog.view.BlogDetailFragment"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none"
+    >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--   toolbar-->
+            <LinearLayout
+                android:id="@+id/ll_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@drawable/bg_toolbar_i"
+                android:elevation="4dp"
+                android:gravity="bottom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:contentInsetLeft="0dp"
+                    app:contentInsetStart="0dp"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                    <RelativeLayout
+                        android:id="@+id/ll_header"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingEnd="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp">
+
+                        <TextView
+                            android:id="@+id/tv_header_title"
+                            style="@style/ToolbarTitleText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:maxLines="1"
+                            android:paddingStart="@dimen/_5sdp"
+                            android:paddingEnd="@dimen/_5sdp"
+                            android:textColor="@color/colorWhite"
+                            tools:text="Title" />
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:id="@+id/ibtn_close"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:padding="@dimen/_10sdp"
+                            app:srcCompat="@drawable/ic_close_white" />
+                    </RelativeLayout>
+                </androidx.appcompat.widget.Toolbar>
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_blog"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_200sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_doctor"
+                app:srcCompat="@drawable/img_blog_dummy" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_blog_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:ellipsize="end"
+                android:gravity="start"
+                tools:text="Health and Nutrition Tips That Are Actually Evidence-Based Tips That Are Actually Evidence-Based Tips That Are Actually Evidence-Based"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/ll_toolbar"
+                app:textAllCaps="false" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_doctor"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:src="@drawable/img_doctor_dummy"
+                app:layout_constraintStart_toStartOf="@+id/tv_blog_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_blog_title" />
+
+            <TextView
+                android:id="@+id/tv_doc_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                tools:text="Dr Parvinder"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_doctor"
+                app:layout_constraintStart_toEndOf="@+id/iv_doctor"
+                app:layout_constraintTop_toTopOf="@+id/iv_doctor"
+                app:layout_constraintVertical_bias="0.25" />
+
+            <TextView
+                android:id="@+id/tv_created_on"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                tools:text="11/12/2020"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_doctor"
+                app:layout_constraintStart_toEndOf="@+id/iv_doctor"
+                app:layout_constraintTop_toBottomOf="@+id/tv_doc_name"
+                app:layout_constraintVertical_bias="0.25" />
+
+            <TextView
+                android:id="@+id/tv_blog_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text=""
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/iv_blog" />
+            <androidx.core.widget.ContentLoadingProgressBar
+                android:id="@+id/progress_bar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/iv_blog" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/_16sdp" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/_16sdp" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="@dimen/_16sdp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>

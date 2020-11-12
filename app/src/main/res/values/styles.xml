@@ -1,0 +1,161 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/colorWhite</item>
+        <item name="android:fontFamily">@font/font_app</item>
+        <item name="drawerArrowStyle">@style/WhiteDrawerIconStyle</item>
+    </style>
+
+    <style name="AuthenticationActivityTheme" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorGreen</item>
+        <item name="colorPrimaryDark">@color/colorGreen</item>
+        <item name="colorAccent">@color/colorGreen</item>
+
+    </style>
+
+    <style name="FragmentThemeOne" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorGreen</item>
+        <item name="colorPrimaryDark">@color/colorGreen</item>
+        <item name="colorAccent">@color/colorGreen</item>
+    </style>
+
+    <style name="ActivityThemeTwo" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorWhite</item>
+        <item name="colorPrimaryDark">@color/colorWhite</item>
+        <item name="colorAccent">@color/colorWhite</item>
+    </style>
+
+    <style name="HomeActivityTheme" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorTurquoise</item>
+        <item name="colorPrimaryDark">@color/colorGreen</item>
+        <item name="colorAccent">@color/colorGreen</item>
+        <item name="android:windowDisablePreview">true</item>
+<!--        <item name="android:windowDrawsSystemBarBackgrounds">false</item>-->
+
+    </style>
+
+    <style name="WhiteDrawerIconStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/white</item>
+    </style>
+    <style name="ToolBarTitleStyle" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorTurquoise</item>
+        <item name="android:fontFamily">@font/oswald_regular</item>
+    </style>
+
+
+    <style name="EditTextStyleI"  parent="TextAppearance.AppCompat.Title">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/colorLightBlack</item>
+        <item name="hintTextColor">@color/colorGrey</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="ButtonStyleI" parent="@style/Widget.MaterialComponents.Button">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MyApp.MaterialButton</item>
+    </style>
+
+
+    <style name="ShapeAppearanceOverlay.MyApp.MaterialButton" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/_15sdp</item>
+    </style>
+
+    <style name="ButtonStyleII" parent="@style/Widget.MaterialComponents.Button">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MyApp.MaterialButtonII</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MyApp.MaterialButtonII" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/_10sdp</item>
+    </style>
+    <style name="ButtonStyleIII" parent="@style/Widget.MaterialComponents.Button">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MyApp.MaterialButtonIII</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MyApp.MaterialButtonIII" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/_5sdp</item>
+    </style>
+
+
+
+
+
+
+    <style name="PickerStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/colorGreen</item>
+        <item name="colorPrimary">@color/colorWhite</item>
+    </style>
+
+    <style name="ToolbarTitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">18sp</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">@font/oswald_semi_bold</item>
+    </style>
+
+    <style name="SwitchCompatStyle" >
+        <item name="trackTint">@drawable/selector_switch_track</item>
+        <item name="thumbTint">@color/colorWhite</item>
+        <item name="colorControlActivated">@color/colorGreen</item></style>
+
+    <!--    CALENDAR VIEW -->
+    <style name="CalenderViewStyle" parent="Theme.AppCompat">
+        <item name="colorAccent">@color/colorTurquoise</item>
+    </style>
+
+    <style name="CalenderViewDateStyle" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="CalenderViewWeekCustomText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">#3299ab</item>
+    </style>
+
+
+    <style name="CalenderViewMonthCustomText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">#3299ab</item>
+    </style>
+
+    <style name="MaterialCardViewStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlayMaterialCardView</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlayMaterialCardView" parent="">
+        <item name="cornerSizeTopRight">10dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeTopLeft">10dp</item>
+    </style>
+
+
+    <style name="PopupMenuMoreCentralized" parent="@style/Widget.AppCompat.PopupMenu">
+        <item name="android:dropDownHorizontalOffset">-60dp</item>
+        <item name="android:dropDownVerticalOffset">-120dp</item>
+    </style>
+
+    <style name="ItemTextNavigationMenuStyle" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/open_sans_regular</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/rounded_background_ii</item>
+    </style>
+</resources>

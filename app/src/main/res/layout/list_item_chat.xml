@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_sent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@drawable/bg_chat_right"
+        android:padding="@dimen/_8sdp"
+        android:text="Hey\nHow you doing"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_send_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_sent"
+        android:layout_alignEnd="@+id/tv_sent"
+        android:text="05:30 pm"
+        android:layout_marginEnd="@dimen/_2sdp"
+        android:textColor="@color/colorGrey"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_sent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_sent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_received"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:background="@drawable/bg_chat_left"
+        android:padding="@dimen/_8sdp"
+        android:text="I am doing great \nasdddasdsdsadsadsadasadssdadsadsasdas"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_receive_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="05:33 pm"
+        android:textColor="@color/colorGrey"
+        android:textSize="10sp"
+        android:layout_marginStart="@dimen/_2sdp"
+        app:layout_constraintStart_toStartOf="@+id/tv_received"
+        app:layout_constraintTop_toBottomOf="@+id/tv_received" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_receiver"
+        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tv_received,tv_receive_time" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_sender"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tv_sent,tv_send_time" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

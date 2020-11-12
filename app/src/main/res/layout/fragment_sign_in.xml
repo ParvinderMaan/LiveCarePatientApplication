@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".signin.view.SignInFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/_16sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/_16sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/_16sdp" />
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_email"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:autofillHints=""
+        android:background="@drawable/background_edit_text_i"
+        android:hint="@string/hint_user_email"
+        android:imeOptions="actionNext"
+        android:inputType="textEmailAddress"
+        android:maxLength="50"
+        android:paddingStart="@dimen/_16sdp"
+        android:paddingTop="@dimen/_12sdp"
+        android:paddingEnd="@dimen/_16sdp"
+        android:paddingBottom="@dimen/_12sdp"
+        android:textAppearance="@style/EditTextStyleI"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toTopOf="@+id/guideline_top" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:autofillHints=""
+        android:background="@drawable/background_edit_text_i"
+        android:hint="@string/hint_user_password"
+        android:imeOptions="actionGo"
+        android:inputType="textPassword"
+        android:maxLength="50"
+        android:paddingStart="@dimen/_16sdp"
+        android:paddingTop="@dimen/_12sdp"
+        android:paddingEnd="@dimen/_16sdp"
+        android:paddingBottom="@dimen/_12sdp"
+        android:textAppearance="@style/EditTextStyleI"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@+id/edt_email" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="@dimen/_5sdp"
+        android:text="@string/title_i_have_forgotten_my_password"
+        android:textColor="@color/colorGrey"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintTop_toBottomOf="@+id/edt_password" />
+
+    <Button
+        android:id="@+id/btn_sign_in"
+        style="@style/ButtonStyleI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:gravity="center"
+        android:minHeight="0dp"
+        android:paddingStart="@dimen/_30sdp"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_30sdp"
+        android:paddingBottom="@dimen/_8sdp"
+        android:text="@string/action_log_in"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        app:backgroundTint="@color/colorGreen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@+id/tv_forgot_password"
+        app:rippleColor="@color/colorWhite" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:padding="@dimen/_5sdp"
+        android:text="@string/title_or"
+        android:textColor="@color/colorTurquoise"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@+id/btn_sign_in" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_facebook_login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:background="@drawable/background_edit_text_i"
+        android:gravity="center"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/ll_google_login"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView6">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableStart="@drawable/ic_facebook"
+            android:drawablePadding="@dimen/_5sdp"
+            android:gravity="center"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/title_facebook"
+            android:textAppearance="@style/EditTextStyleI"
+            android:textColor="@color/colorDarkBlue"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_google_login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:background="@drawable/background_edit_text_i"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ll_facebook_login"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView6">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableStart="@drawable/ic_google"
+            android:drawablePadding="@dimen/_5sdp"
+            android:gravity="center"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/title_google"
+            android:textAppearance="@style/EditTextStyleI"
+            android:textColor="@color/colorDarkRed"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/pbar_google"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/ll_google_login"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/ll_google_login"
+        app:layout_constraintTop_toTopOf="@+id/ll_google_login" />
+
+    <TextView
+        android:id="@+id/tv_sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:text="@string/title_don_t_have_an_account_sign_up"
+        android:textColor="@color/colorTurquoise"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@+id/ll_facebook_login" />
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/pbar_facebook"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/ll_facebook_login"
+        app:layout_constraintEnd_toEndOf="@+id/ll_facebook_login"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toTopOf="@+id/ll_facebook_login" />
+
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/pbar_general"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_sign_in"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toTopOf="@+id/btn_sign_in" />
+</androidx.constraintlayout.widget.ConstraintLayout>

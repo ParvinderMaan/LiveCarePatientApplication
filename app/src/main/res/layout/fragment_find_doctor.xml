@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".doctor.view.FindDoctorFragment">
+
+    <LinearLayout
+        android:id="@+id/appbarlayout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/bg_toolbar_i"
+        android:elevation="4dp"
+        android:gravity="bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_main"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <RelativeLayout
+                android:id="@+id/ll_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp">
+
+                <TextView
+                    android:id="@+id/tv_header_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:maxLines="1"
+                    android:paddingStart="@dimen/_5sdp"
+                    android:paddingEnd="@dimen/_5sdp"
+                    style="@style/ToolbarTitleText"
+                    android:textColor="@color/colorWhite"
+                    tools:text="Chapter Title" />
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/ibtn_close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    app:srcCompat="@drawable/ic_close_white" />
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appbarlayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp">
+        <TextView
+            android:id="@+id/tv_search"
+            android:layout_width="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:inputType="none"
+            android:paddingStart="@dimen/_8sdp"
+            android:drawablePadding="@dimen/_10sdp"
+            android:drawableStart="@drawable/ic_search"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@drawable/background_edit_text_ii"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+            app:layout_constraintStart_toStartOf="@+id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/appbarlayout"
+            tools:ignore="RtlSymmetry" />
+<!--        <Button-->
+<!--            android:id="@+id/btn_book_now"-->
+<!--            android:layout_marginTop="@dimen/_5sdp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_marginStart="@dimen/_5sdp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:paddingStart="@dimen/_5sdp"-->
+<!--            android:paddingEnd="@dimen/_5sdp"-->
+<!--            android:clickable="false"-->
+<!--            android:focusable="false"-->
+<!--            android:minHeight="0dp"-->
+<!--            android:visibility="gone"-->
+<!--            android:text="Women Health"-->
+<!--            android:textAllCaps="true"-->
+<!--            android:textColor="@color/colorWhite"-->
+<!--            android:textSize="10sp"-->
+<!--            app:backgroundTint="@color/colorTurquoise"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/textView5"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tv_search"-->
+<!--            app:rippleColor="@color/colorTurquoise" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView5"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Speciality :"-->
+<!--            android:textSize="10sp"-->
+<!--            android:visibility="gone"-->
+<!--            android:paddingStart="@dimen/_5sdp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/btn_book_now"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/tv_search"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/btn_book_now" />-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_find_doctor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            tools:itemCount="2"
+            tools:listitem="@layout/list_item_find_doctor" />
+
+    </LinearLayout>
+
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/_16sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/_16sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/_16sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="@dimen/_16sdp" />
+
+
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_empty_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/alert_no_doctor_yet"
+        android:textSize="12sp"
+        android:layout_marginTop="@dimen/_16sdp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_empty_state"
+        app:layout_constraintStart_toStartOf="@+id/iv_empty_state"
+        app:layout_constraintTop_toBottomOf="@+id/iv_empty_state" />
+
+    <ImageView
+        android:id="@+id/iv_empty_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_empty_state"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appbarlayout" />
+
+    <androidx.constraintlayout.widget.Group
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tv_empty_state,iv_empty_state"
+        android:id="@+id/group_empty_view" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

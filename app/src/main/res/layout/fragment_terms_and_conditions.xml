@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/cl_root"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".miscellaneous.view.TermAndConditionFragment">
+
+    <LinearLayout
+        android:id="@+id/appbarlayout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/bg_toolbar_i"
+        android:elevation="4dp"
+        android:gravity="bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_main"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <RelativeLayout
+                android:id="@+id/ll_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp">
+
+                <TextView
+                    android:id="@+id/tv_header_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:maxLines="1"
+                    android:paddingStart="@dimen/_5sdp"
+                    android:paddingEnd="@dimen/_5sdp"
+                    style="@style/ToolbarTitleText"
+                    android:textColor="@color/colorWhite"
+                    tools:text="Chapter Title" />
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/ibtn_close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+
+                    app:srcCompat="@drawable/ic_close_white" />
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+    </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_term_and_condition"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingTop="@dimen/_8sdp"
+        android:maxLines="25"
+        tools:text="@string/dummy_term_and_condition_content"
+        android:textColor="@color/colorLightBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline_bottom"
+        app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@+id/appbarlayout" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fbtn_read_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:minHeight="0dp"
+        android:paddingStart="@dimen/_5sdp"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingEnd="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_5sdp"
+        android:text="@string/title_read_more"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        android:theme="@style/Theme.MaterialComponents.Light"
+        app:backgroundTint="@color/colorGreen"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:rippleColor="@color/colorWhite" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/_16sdp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/_16sdp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="@dimen/_16sdp" />
+
+
+    <View
+        android:id="@+id/view_divider"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@color/colorGreen"
+        app:layout_constraintBottom_toTopOf="@+id/fbtn_read_more"
+        app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start" />
+
+
+    <androidx.constraintlayout.widget.Group
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:constraint_referenced_ids="fbtn_read_more,view_divider"
+        android:id="@+id/group" />
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+        app:layout_constraintStart_toStartOf="@+id/guideline_start"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

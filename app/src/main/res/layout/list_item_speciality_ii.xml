@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:id="@+id/cardview"
+    android:layout_gravity="center_horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_8sdp"
+    android:layout_marginEnd="@dimen/_8sdp"
+    android:layout_marginBottom="@dimen/_4sdp"
+    android:layout_marginTop="@dimen/_4sdp"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    app:cardBackgroundColor="@color/colorWhite"
+    app:cardElevation="2dp"
+    app:cardCornerRadius="10dp"
+    card_view:contentPadding="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_category"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_150sdp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="#e5eef5" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_category_"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:scaleType="centerCrop"
+            android:src="@color/colorWhite"
+
+            app:layout_constraintBottom_toBottomOf="@+id/iv_category"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_speciality_dummy" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_category_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:paddingBottom="@dimen/_8sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:maxLines="1"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:text="Skin Care"
+            android:ellipsize="end"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_category"
+            app:textAllCaps="false" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        android:id="@+id/appbarlayout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/bg_toolbar_i"
+        android:elevation="4dp"
+        android:gravity="bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_main"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <RelativeLayout
+                android:id="@+id/ll_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_profile"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/img_doctor_dummy"
+                    app:civ_border_color="@color/colorWhite"
+                    app:civ_border_width="1dp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/appCompatImageView"
+                    app:layout_constraintVertical_bias=".3" />
+
+
+                <TextView
+                    android:id="@+id/tv_header_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:layout_toRightOf="@+id/iv_profile"
+                    android:paddingStart="@dimen/_5sdp"
+                    android:paddingEnd="@dimen/_5sdp"
+                    android:fontFamily="@font/oswald_regular"
+                    android:textColor="@color/colorWhite"
+                    android:text="Dr John Wick" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/ibtn_close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:background="@android:color/transparent"
+                    android:padding="@dimen/_5sdp"
+                    app:srcCompat="@drawable/ic_close_white" />
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/type_message_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingBottom="@dimen/_8sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/send_message_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:src="@drawable/ic_send"
+            app:backgroundTint="@color/colorWhite"
+            app:fabSize="normal"
+            app:rippleColor="@color/colorPrimary"
+            app:tint="@color/colorPrimary" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/ed_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_toStartOf="@id/send_message_button"
+            android:background="@drawable/background_chat"
+            android:hint="Type Message"
+            android:inputType="textMultiLine"
+            android:maxLines="5"
+            android:minLines="1"
+            android:padding="@dimen/_10sdp"
+            android:textColorHint="@color/colorGrey"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_chat"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:itemCount="2"
+        tools:listitem="@layout/list_item_chat"
+        android:layout_above="@id/type_message_layout"
+        app:layout_constraintBottom_toTopOf="@+id/type_message_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/appbarlayout"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

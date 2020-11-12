@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/cl_root"
+    tools:context=".profile.view.MyProfileFragment">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp"
+        android:background="@drawable/img_profile_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.appcompat.widget.AppCompatImageView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_basic"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:background="@drawable/selector_profile"
+        android:fontFamily="@font/oswald_regular"
+        android:gravity="center"
+        android:maxLines="1"
+        android:padding="@dimen/_5sdp"
+        android:paddingStart="@dimen/_20sdp"
+        android:paddingEnd="@dimen/_20sdp"
+        android:text="@string/title_profile_basic"
+        android:textAllCaps="true"
+        android:textColor="@drawable/selector_consult_ii"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView"
+        app:layout_constraintEnd_toStartOf="@+id/tv_additional"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_additional"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:background="@drawable/selector_profile"
+        android:fontFamily="@font/oswald_regular"
+        android:gravity="center"
+        android:maxLines="1"
+        android:padding="@dimen/_5sdp"
+        android:paddingStart="@dimen/_20sdp"
+        android:paddingEnd="@dimen/_20sdp"
+        android:text="@string/title_title_profile_additional"
+        android:textAllCaps="true"
+        android:textColor="@drawable/selector_consult_ii"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_basic"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView" />
+
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fl_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_basic" />
+
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:background="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/_16sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/_16sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="@dimen/_16sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/_16sdp" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/civ_pat_pic"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:src="@drawable/img_doctor_dummy"
+        app:civ_border_color="@color/colorWhite"
+        app:civ_border_width="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/appCompatImageView"
+        app:layout_constraintVertical_bias=".3" />
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/progress_bar_"
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/civ_pat_pic"
+        app:layout_constraintEnd_toEndOf="@+id/civ_pat_pic"
+        app:layout_constraintStart_toStartOf="@+id/civ_pat_pic"
+        app:layout_constraintTop_toTopOf="@+id/civ_pat_pic" />
+    <TextView
+        android:id="@+id/tv_pat_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:text="Henry Tods"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/civ_pat_pic"
+        app:layout_constraintStart_toStartOf="@+id/civ_pat_pic"
+        app:layout_constraintTop_toBottomOf="@+id/civ_pat_pic" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/ibtn_edit_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_circle_white"
+        android:padding="@dimen/_5sdp"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintCircle="@+id/civ_pat_pic"
+        app:layout_constraintCircleAngle="45"
+        app:layout_constraintCircleRadius="@dimen/_40sdp"
+        app:layout_constraintStart_toStartOf="@+id/civ_pat_pic"
+        app:layout_constraintTop_toTopOf="@+id/civ_pat_pic" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
