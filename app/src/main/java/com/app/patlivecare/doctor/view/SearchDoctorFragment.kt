@@ -44,7 +44,7 @@ class SearchDoctorFragment : BaseFragment() {
     var searchDoctorAdapter:SearchDoctorAdapter?=null
     private lateinit var viewModel: SearchDoctorViewModel
     private var sharedPrefs: SharedPrefHelper? = null
-    private  var disposable: Disposable?=null;
+    private  var disposable: Disposable?=null
 
     companion object {
         fun newInstance(payload: Any?):SearchDoctorFragment{
@@ -76,11 +76,9 @@ class SearchDoctorFragment : BaseFragment() {
         searchDoctorAdapter= SearchDoctorAdapter()
         viewModel = ViewModelProvider(this).get(SearchDoctorViewModel::class.java)
         viewModel.headers= headerMap
-
         arguments?.let {
             viewModel.specialityId = it.getString("KEY","")
         }
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -94,16 +92,13 @@ class SearchDoctorFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         tv_header_title?.text = getString(R.string.title_search_your_doctors)       // CATEGORY NAME =
         if(activity is AppCompatActivity) (activity as AppCompatActivity).setSupportActionBar(toolbar_main)
-
         search_view?.isIconified = false // Expand the SearchView with
-
         search_view?.setOnCloseListener {
-            activity?.finish()
+          //  activity?.finish()
             return@setOnCloseListener true
         }
 
         initRecyclerView()
-
         ibtn_close.setOnClickListener {
             activity?.finish()
         }
@@ -116,9 +111,7 @@ class SearchDoctorFragment : BaseFragment() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { queryText->
                 viewModel.fetchSearchDoctor(queryText)
-
             }
-
         initObserver()
     }
 
@@ -132,7 +125,6 @@ class SearchDoctorFragment : BaseFragment() {
             override fun onItemClick(model: DoctorInfo, adapterPosition: Int) {
                 mFragmentListener?.showFragment(FragmentType.DOCTOR_DETAIL_FRAGMENT,model)
             }
-
             override fun onItemBookClick(model: DoctorInfo, adapterPosition: Int) {
                 mFragmentListener?.showFragment(FragmentType.APPOINTMENT_BOOKING_FRAGMENT,model)
             }

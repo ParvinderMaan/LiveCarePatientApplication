@@ -2,18 +2,20 @@ package com.app.patlivecare.home.view
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.view.animation.LayoutAnimationController
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.patlivecare.LiveCareApplication
-import com.app.patlivecare.MinorActivity
+import com.app.patlivecare.extra.MinorActivity
 import com.app.patlivecare.R
 import com.app.patlivecare.annotation.FragmentType
 import com.app.patlivecare.annotation.Status
@@ -25,6 +27,7 @@ import com.app.patlivecare.doctor.view.TopDoctorAdapter
 import com.app.patlivecare.helper.SharedPrefHelper
 import com.app.patlivecare.home.viewmodel.HomeViewModel
 import com.app.patlivecare.network.WebHeader
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collect
@@ -40,6 +43,7 @@ class HomeFragment : BaseFragment() {
     private var specialityAdapter: DoctorSpecialityAdapter? = null
     private var sharedPrefs: SharedPrefHelper? = null
     private lateinit var viewModel: HomeViewModel
+    private var snackBarRetry:Snackbar?=null
     private var job:Job?=null
     private var isAnimateOnce:Boolean=false
     companion object {
@@ -98,30 +102,22 @@ class HomeFragment : BaseFragment() {
         }
 
         rv_speciality?.apply {
-            layoutManager = LinearLayoutManager(
-                requireActivity(),
-                LinearLayoutManager.HORIZONTAL,
-                false
-            )
+            layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
             adapter = specialityAdapter
             if(!isAnimateOnce)layoutAnimation=mLayoutAnimation
             specialityAdapter?.setOnItemClickListener(object :
                 DoctorSpecialityAdapter.OnItemClickListener {
                 override fun onItemClick(model: SpecialityInfo, adapterPosition: Int) {
                     val intent = Intent(activity, MinorActivity::class.java)
-                    intent.putExtra("fragment_type", FragmentType.FIND_DOCTOR_FRAGMENT)
                     intent.putExtra("key_", model.id.toString())
+                    intent.putExtra("fragment_type", FragmentType.FIND_DOCTOR_FRAGMENT)
                     startActivity(intent)
                 }
 
             })
         }
         rv_our_top_doctors?.apply {
-            layoutManager = LinearLayoutManager(
-                requireActivity(),
-                LinearLayoutManager.HORIZONTAL,
-                false
-            )
+            layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
             adapter = topDoctorAdapter
             if(!isAnimateOnce)layoutAnimation=mLayoutAnimation
             topDoctorAdapter?.setOnItemClickListener(object :
@@ -132,18 +128,16 @@ class HomeFragment : BaseFragment() {
                     intent.putExtra("fragment_type", FragmentType.DOCTOR_DETAIL_FRAGMENT)
                     startActivity(intent)
                 }
-
                 override fun onItemBookNowClick(model: DoctorInfo, adapterPosition: Int) {
                     val intent = Intent(activity, MinorActivity::class.java)
-                    intent.putExtra("fragment_type", FragmentType.APPOINTMENT_BOOKING_FRAGMENT)
                     intent.putExtra("key_", model)
+                    intent.putExtra("fragment_type", FragmentType.APPOINTMENT_BOOKING_FRAGMENT)
                     startActivity(intent)
                 }
             })
         }
 
         initObserver()
-
         isAnimateOnce=true
     }
 
@@ -194,7 +188,6 @@ class HomeFragment : BaseFragment() {
                 tv_find_with_speciality.visibility = View.VISIBLE
                 rv_speciality.visibility = View.VISIBLE
                 tv_view_all_speciality.visibility = View.VISIBLE
-
             }
         })
 
@@ -213,11 +206,8 @@ class HomeFragment : BaseFragment() {
             when (it.status) {
                 Status.SUCCESS -> {
                     viewModel.lstOfSpeciality.value = it.data?.data?.listOfSpeciality
-
                 }
-                Status.FAILURE -> {
-
-                }
+                Status.FAILURE -> {}
             }
         })
         viewModel.resultPatientInfo.observe(viewLifecycleOwner, Observer {
@@ -230,17 +220,12 @@ class HomeFragment : BaseFragment() {
                     else {
                         cv_profile_complete.visibility = View.VISIBLE
                         profilePercent?.let { progress ->
-//                          progress_bar?.progress = progress
-//                          tv_profile_percent?.text = progress.toString()
-//                          tv_profile_percent.append("%")
-                            tv_profile_percent_?.text =
-                                getString(R.string.title_profile_completion_rate)
-                            tv_profile_percent_?.append(" ")
-                            tv_profile_percent_?.append(progress.toString())
-                            tv_profile_percent_.append("%")
+                            tv_profile_percent_?.text =getString(R.string.title_profile_completion_rate)
+                                .plus(" ")
+                                .plus(progress.toString())
+                                .plus("%")
 
                             job = viewLifecycleOwner.lifecycleScope.launch {
-
                                 flow {
                                     (1..progress).forEach { value ->
                                         delay(20)
@@ -250,8 +235,7 @@ class HomeFragment : BaseFragment() {
                                     .collect { xXx ->
                                         withContext(Dispatchers.Main) {
                                             progress_bar?.progress = xXx
-                                            tv_profile_percent?.text = xXx.toString()
-                                            tv_profile_percent.append("%")
+                                            tv_profile_percent?.text = xXx.toString().plus("%")
                                         }
                                     }
                             }
@@ -262,9 +246,7 @@ class HomeFragment : BaseFragment() {
                         }
                     }
                 }
-                Status.FAILURE -> {
-                    it.errorMsg?.let { it1 -> showSnackBar(it1) }
-                }
+                Status.FAILURE -> {}
             }
         })
 
@@ -277,7 +259,7 @@ class HomeFragment : BaseFragment() {
                     viewModel.lstOfTopDoctor.value = it.data?.listOfDoctor
                 }
                 Status.FAILURE -> {
-
+                    it.errorMsg?.let { it1 -> showRetrySnackBar(it1) }
                 }
             }
         })
@@ -287,6 +269,17 @@ class HomeFragment : BaseFragment() {
     override fun onDestroyView() {
         job?.cancel()
         super.onDestroyView()
+    }
+
+    @ExperimentalCoroutinesApi
+    private fun showRetrySnackBar(msg:String){
+        snackBarRetry = Snackbar.make(getRootView(), msg, Snackbar.LENGTH_INDEFINITE)
+        snackBarRetry?.view?.setBackgroundColor(ContextCompat.getColor(requireActivity(),R.color.colorRed))
+        snackBarRetry?.setActionTextColor(Color.WHITE)
+        snackBarRetry?.setAction(getString(R.string.action_retry)) {
+            viewModel.fetchDashboardInfo()
+        }
+        ?.show()
     }
 
 }

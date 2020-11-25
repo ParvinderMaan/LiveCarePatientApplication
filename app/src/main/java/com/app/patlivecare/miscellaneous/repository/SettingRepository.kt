@@ -1,6 +1,6 @@
 package com.app.patlivecare.miscellaneous.repository
 
-import com.app.patlivecare.GeneralResponse
+import com.app.patlivecare.extra.GeneralResponse
 import com.app.patlivecare.network.WebService
 import com.google.gson.JsonObject
 import kotlinx.coroutines.Dispatchers

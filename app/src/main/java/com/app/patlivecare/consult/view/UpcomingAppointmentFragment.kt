@@ -16,7 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.patlivecare.LiveCareApplication
-import com.app.patlivecare.MinorActivity
+import com.app.patlivecare.extra.MinorActivity
 import com.app.patlivecare.R
 import com.app.patlivecare.annotation.AppointmentStatus
 import com.app.patlivecare.annotation.FragmentType

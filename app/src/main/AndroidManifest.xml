@@ -39,7 +39,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/HomeActivityTheme"/>
         <activity
-            android:name=".MinorActivity"
+            android:name=".extra.MinorActivity"
             android:screenOrientation="portrait"
             android:theme="@style/HomeActivityTheme" />
         <activity

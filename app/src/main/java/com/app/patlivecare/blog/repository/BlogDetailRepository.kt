@@ -1,8 +1,6 @@
 package com.app.patlivecare.blog.repository
 
-import com.app.patlivecare.GeneralResponse
 import com.app.patlivecare.blog.model.BlogDetailResponse
-import com.app.patlivecare.blog.model.BlogResponse
 import com.app.patlivecare.network.WebService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

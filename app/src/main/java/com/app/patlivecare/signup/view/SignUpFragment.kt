@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
 import com.app.patlivecare.LiveCareApplication
-import com.app.patlivecare.MinorActivity
+import com.app.patlivecare.extra.MinorActivity
 import com.app.patlivecare.R
 import com.app.patlivecare.annotation.FragmentType
 import com.app.patlivecare.base.BaseFragment
@@ -74,12 +74,12 @@ class SignUpFragment : BaseFragment(){
      fun showFragment(@FragmentType fragment: String) {
         when (fragment) {
             FragmentType.PRIVACY_POLICY_FRAGMENT -> {
-                val intent=Intent(activity,MinorActivity::class.java)
+                val intent=Intent(activity, MinorActivity::class.java)
                 intent.putExtra("fragment_type",FragmentType.PRIVACY_POLICY_FRAGMENT)
                 startActivity(intent)
             }
             FragmentType.TERM_AND_CONDITION_FRAGMENT -> {
-                val intent=Intent(activity,MinorActivity::class.java)
+                val intent=Intent(activity, MinorActivity::class.java)
                 intent.putExtra("fragment_type",FragmentType.TERM_AND_CONDITION_FRAGMENT)
                 startActivity(intent)
             }

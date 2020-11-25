@@ -11,7 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.app.patlivecare.network.WebHeader
 import com.app.patlivecare.LiveCareApplication
-import com.app.patlivecare.MinorActivity
+import com.app.patlivecare.extra.MinorActivity
 import com.app.patlivecare.R
 import com.app.patlivecare.annotation.FragmentType
 import com.app.patlivecare.annotation.Status

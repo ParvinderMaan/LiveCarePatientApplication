@@ -3,16 +3,9 @@ package com.app.patlivecare.blog.repository
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import androidx.paging.PageKeyedDataSource
-import com.app.patlivecare.GeneralResponse
 import com.app.patlivecare.blog.model.BlogInfo
 import com.app.patlivecare.blog.model.BlogResponse
-import com.app.patlivecare.medicalrecord.model.AttachmentHistoryResponse
 import com.app.patlivecare.network.WebService
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

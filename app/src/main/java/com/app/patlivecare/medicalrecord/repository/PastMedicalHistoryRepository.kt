@@ -1,6 +1,6 @@
 package com.app.patlivecare.medicalrecord.repository
 
-import com.app.patlivecare.GeneralResponse
+import com.app.patlivecare.extra.GeneralResponse
 import com.app.patlivecare.medicalrecord.model.PastMedicalHistoryInfo
 import com.app.patlivecare.medicalrecord.model.PastMedicalHistoryResponse
 import com.app.patlivecare.network.WebService

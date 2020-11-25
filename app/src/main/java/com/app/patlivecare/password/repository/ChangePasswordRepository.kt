@@ -1,8 +1,7 @@
 package com.app.patlivecare.password.repository
 
-import com.app.patlivecare.GeneralResponse
+import com.app.patlivecare.extra.GeneralResponse
 import com.app.patlivecare.network.WebService
-import com.app.patlivecare.password.model.SendOtpResponse
 import com.google.gson.JsonObject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

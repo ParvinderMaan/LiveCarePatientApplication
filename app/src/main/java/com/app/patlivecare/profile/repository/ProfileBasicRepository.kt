@@ -1,6 +1,6 @@
 package com.app.patlivecare.profile.repository
 
-import com.app.patlivecare.GeneralResponse
+import com.app.patlivecare.extra.GeneralResponse
 import com.app.patlivecare.network.WebService
 import com.app.patlivecare.profile.model.BasicInfoResponse
 import com.app.patlivecare.profile.model.BasicProfileRequest
@@ -11,7 +11,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import okhttp3.MultipartBody
 
 class ProfileBasicRepository (val webService: WebService) {
 

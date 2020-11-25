@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.app.patlivecare.GeneralResponse
+import com.app.patlivecare.extra.GeneralResponse
 import com.app.patlivecare.LiveCareApplication
 import com.app.patlivecare.annotation.Status
 import com.app.patlivecare.extra.WebResponse
@@ -18,9 +18,6 @@ import com.app.patlivecare.profile.repository.ProfileBasicRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class ProfileBasicViewModel(application: Application) : AndroidViewModel(application) {
     private var webService: WebService

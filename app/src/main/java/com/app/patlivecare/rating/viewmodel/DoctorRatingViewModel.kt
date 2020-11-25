@@ -2,15 +2,12 @@ package com.app.patlivecare.rating.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.app.patlivecare.GeneralResponse
+import com.app.patlivecare.extra.GeneralResponse
 
 import com.app.patlivecare.LiveCareApplication
 import com.app.patlivecare.annotation.Status
-import com.app.patlivecare.doctor.model.DoctorDetailResponse
-import com.app.patlivecare.doctor.repository.DoctorDetailRepository
 import com.app.patlivecare.extra.WebResponse
 import com.app.patlivecare.helper.ErrorHandler
 import com.app.patlivecare.network.WebService

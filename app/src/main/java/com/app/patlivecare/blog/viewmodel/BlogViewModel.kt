@@ -6,18 +6,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import com.app.patlivecare.GeneralResponse
 import com.app.patlivecare.LiveCareApplication
 import com.app.patlivecare.blog.model.BlogInfo
-import com.app.patlivecare.blog.model.BlogResponse
 import com.app.patlivecare.blog.repository.BlogRepository
-import com.app.patlivecare.extra.WebResponse
 import com.app.patlivecare.network.WebService
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
 import java.util.HashMap
 
 class BlogViewModel(application: Application) : AndroidViewModel(application) {

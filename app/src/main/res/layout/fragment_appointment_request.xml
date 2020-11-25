@@ -65,7 +65,7 @@
     </LinearLayout>
     <!--    body-->
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardview"
+        android:id="@+id/card_view_top"
         android:background="?attr/selectableItemBackground"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_80sdp"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:src="@drawable/img_doctor_dummy"
                 app:civ_border_color="@color/colorTurquoise"
                 app:civ_border_width="5dp"
@@ -102,29 +102,31 @@
 
             <TextView
                 android:id="@+id/tv_doc_name"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_8sdp"
-                android:includeFontPadding="false"
-                android:text="Dr. William Jones"
-                android:textAllCaps="true"
+                android:layout_marginEnd="@dimen/_8sdp"
                 android:fontFamily="@font/oswald_regular"
+                android:includeFontPadding="false"
+                tools:text="Dr. William Jones"
+                android:textAllCaps="true"
                 android:textColor="@color/colorTurquoise"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_profile"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_profile"
                 app:layout_constraintTop_toTopOf="@+id/iv_profile"
                 app:layout_constraintVertical_bias=".25" />
 
             <TextView
                 android:id="@+id/tv_speciality"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Dentist"
-                android:fontFamily="@font/open_sans_light"
+                tools:text="Dentist"
                 android:textColor="@color/colorLightBlack"
                 android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_doc_name"
                 app:layout_constraintStart_toStartOf="@+id/tv_doc_name"
                 app:layout_constraintTop_toBottomOf="@+id/tv_doc_name" />
 
@@ -251,7 +253,7 @@
 
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardview_1"
+        android:id="@+id/card_view_bottom"
         android:layout_width="0dp"
         android:layout_marginTop="@dimen/_8sdp"
         android:layout_height="wrap_content"
@@ -263,7 +265,7 @@
         android:background="?attr/selectableItemBackground"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
         app:layout_constraintStart_toStartOf="@+id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@+id/cardview"
+        app:layout_constraintTop_toBottomOf="@+id/card_view_top"
         tools:cardCornerRadius="10dp"
         tools:contentPadding="0dp">
 
@@ -350,7 +352,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline_end"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintTop_toBottomOf="@+id/cardview_1"
+        app:layout_constraintTop_toBottomOf="@+id/card_view_bottom"
         app:rippleColor="@color/colorWhite" />
 
     <androidx.constraintlayout.widget.Guideline

@@ -80,11 +80,12 @@ class TimeSlotAdapter : ListAdapter<TimeSlotInfo,TimeSlotAdapter.VViewHolder>(IT
             val outFormatter = DateTimeFormatter.ofPattern("hh:mm a", Locale.getDefault()) // 01-09-2020 ---> 1-9-2020
             val dateTime = LocalDateTime.parse(model.slotFrom, inFormatter)
             val formattedDate: String =dateTime.format(outFormatter)
-          //  val formattedDate: String =dateTime.format(inFormatter)
+        //  val formattedDate: String =dateTime.format(inFormatter)
             itemView.tv_name?.text =formattedDate
-            itemView.setOnClickListener {
-                itemClickListener?.onItemClick(model,0)
-            }
+
+            if(model.isSlotAvailable)  itemView.setOnClickListener { itemClickListener?.onItemClick(model,adapterPosition) }
+            else itemView.setOnClickListener(null)
+
         }
 
 

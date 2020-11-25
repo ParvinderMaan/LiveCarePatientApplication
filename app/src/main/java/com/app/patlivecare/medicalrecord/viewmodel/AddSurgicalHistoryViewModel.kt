@@ -4,14 +4,12 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.app.patlivecare.GeneralResponse
+import com.app.patlivecare.extra.GeneralResponse
 import com.app.patlivecare.LiveCareApplication
 import com.app.patlivecare.annotation.Status
 import com.app.patlivecare.extra.WebResponse
 import com.app.patlivecare.helper.ErrorHandler
-import com.app.patlivecare.medicalrecord.model.PastMedicalHistoryInfo
 import com.app.patlivecare.medicalrecord.model.SurgicalHistoryInfo
-import com.app.patlivecare.medicalrecord.repository.PastMedicalHistoryRepository
 import com.app.patlivecare.medicalrecord.repository.SurgicalHistoryRepository
 import com.app.patlivecare.network.WebService
 import kotlinx.coroutines.ExperimentalCoroutinesApi

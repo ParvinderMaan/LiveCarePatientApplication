@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.app.patlivecare.GeneralResponse
 import com.app.patlivecare.LiveCareApplication
 import com.app.patlivecare.annotation.Status
 import com.app.patlivecare.doctor.model.DoctorInfo

@@ -24,14 +24,12 @@ class DoctorDetailViewModel (application: Application) : AndroidViewModel(applic
     var resultDoctorDetail: MutableLiveData<WebResponse<DoctorDetailResponse>>
 
     var headerMap: Map<String, String>
-    var lstOfLanguage: MutableLiveData<List<DoctorDetailResponse.Language>>
     var repository: DoctorDetailRepository
     init {
         webService = (application as LiveCareApplication).getWebServiceInstance()
         isLoading = MutableLiveData()
         headerMap = HashMap()
         resultDoctorDetail= MutableLiveData()
-        lstOfLanguage= MutableLiveData()
         repository= DoctorDetailRepository(webService)
     }
 

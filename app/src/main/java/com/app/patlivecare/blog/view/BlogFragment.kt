@@ -10,14 +10,12 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.patlivecare.LiveCareApplication
-import com.app.patlivecare.MinorActivity
+import com.app.patlivecare.extra.MinorActivity
 import com.app.patlivecare.R
 import com.app.patlivecare.annotation.FragmentType
 import com.app.patlivecare.blog.model.BlogInfo
 import com.app.patlivecare.blog.viewmodel.BlogViewModel
 import com.app.patlivecare.helper.SharedPrefHelper
-import com.app.patlivecare.interfacor.HomeFragmentSelectedListener
-import com.app.patlivecare.medicalrecord.viewmodel.PastMedicalHistoryViewModel
 import com.app.patlivecare.network.WebHeader
 import kotlinx.android.synthetic.main.fragment_blog.*
 import androidx.lifecycle.Observer

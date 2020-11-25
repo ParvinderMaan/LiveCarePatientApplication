@@ -4,11 +4,10 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.app.patlivecare.GeneralResponse
+import com.app.patlivecare.extra.GeneralResponse
 import com.app.patlivecare.LiveCareApplication
 import com.app.patlivecare.annotation.AppointmentStatus
 import com.app.patlivecare.annotation.Status
-import com.app.patlivecare.appointment.model.DoctorScheduleResponse
 import com.app.patlivecare.consult.model.AppointmentInfo
 import com.app.patlivecare.consult.model.UpcomingAppointmentResponse
 import com.app.patlivecare.consult.repository.UpcomingAppointmentRepository

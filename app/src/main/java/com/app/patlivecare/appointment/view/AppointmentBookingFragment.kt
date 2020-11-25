@@ -76,32 +76,21 @@ class AppointmentBookingFragment : BaseFragment() {
         val tempDateOfCalendar = LocalDate.of(zonedDateTime.year, zonedDateTime.month.plus(1), 1)
         minDateOfCalendar = LocalDate.of(zonedDateTime.year, zonedDateTime.month, 1)
         maxDateOfCalendar = LocalDate.of(tempDateOfCalendar.year, tempDateOfCalendar.month, tempDateOfCalendar.lengthOfMonth())
-
-        arguments?.let {
-            doctorInfo = it.getParcelable("KEY")
-        }
+        arguments?.let { doctorInfo = it.getParcelable("KEY") }
         val accessToken = sharedPrefs?.read(SharedPrefHelper.KEY_ACCESS_TOKEN, "").toString()
         val headerMap = HashMap<String, String>()
         headerMap[WebHeader.KEY_ACCEPT] = WebHeader.VAL_ACCEPT
         headerMap[WebHeader.KEY_AUTHORIZATION] = "Bearer " + accessToken
         viewModel = ViewModelProvider(this).get(AppointmentBookingViewModel::class.java)
         viewModel.headerMap = headerMap
-        val dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy")
-
-
+        val dtFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
         doctorInfo?.id?.let{
-          val dateOfMonth = dtf.format(ZonedDateTime.now(ZoneOffset.UTC).toLocalDate())
-        viewModel.fetchDoctorSchedule(it, dateOfMonth)
+          val dateOfMonth = dtFormatter.format(ZonedDateTime.now(ZoneOffset.UTC).toLocalDate())
+          viewModel.fetchDoctorSchedule(it, dateOfMonth)
        }
-
-
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_appointment_booking, container, false)
     }
 
@@ -109,24 +98,21 @@ class AppointmentBookingFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tv_header_title?.text = getString(R.string.title_book_an_appointment)
-        if (activity is AppCompatActivity) (activity as AppCompatActivity).setSupportActionBar(
-            toolbar_main
-        )
-
+        if (activity is AppCompatActivity) (activity as AppCompatActivity).setSupportActionBar(toolbar_main)
         ibtn_close?.setOnClickListener {
             mFragmentListener?.popTopMostFragment()
         }
-        cardview_2?.setOnClickListener {}
-        cardview_footer?.setOnClickListener {}
-
+        cardview_header?.setOnClickListener {} // ripple effect
+        cardview_footer?.setOnClickListener {} // ripple effect
         initCalendarView()
         initView()
         initObserver()
-
     }
 
     @ExperimentalStdlibApi
     private fun initView() {
+
+
         doctorInfo?.let {
             if (!it.profilePic.isNullOrEmpty()) {
                 Glide.with(this)
@@ -158,7 +144,6 @@ class AppointmentBookingFragment : BaseFragment() {
 
     }
 
-
     private fun initCalendarView() {
         cal_view_schedule?.setTitleMonths(R.array.label_months)
         cal_view_schedule?.setTitleFormatter(object : DateFormatTitleFormatter() {
@@ -176,8 +161,7 @@ class AppointmentBookingFragment : BaseFragment() {
             ?.commit()
 
         cal_view_schedule?.topbarVisible = true
-        cal_view_schedule?.setOnDateChangedListener(OnDateSelectedListener { widget: MaterialCalendarView?, day: CalendarDay, selected: Boolean ->
-        })
+        cal_view_schedule?.setOnDateChangedListener(OnDateSelectedListener { widget: MaterialCalendarView?, day: CalendarDay, selected: Boolean -> })
         cal_view_schedule?.setWeekDayFormatter(WeekDayFormatter { dayOfWeek: DayOfWeek ->
             dayOfWeek.getDisplayName(
                 TextStyle.NARROW,
@@ -204,7 +188,6 @@ class AppointmentBookingFragment : BaseFragment() {
             if (it) progress_bar?.visibility = View.VISIBLE
             else progress_bar?.visibility = View.INVISIBLE
         })
-
         viewModel.resultDoctorSchedule.observe(viewLifecycleOwner, Observer {
             when (it.status) {
                 Status.SUCCESS -> {
@@ -217,7 +200,6 @@ class AppointmentBookingFragment : BaseFragment() {
                 }
             }
         })
-
         viewModel.lstOfAvailableDates.observe(viewLifecycleOwner, Observer {
             if (it.isEmpty()) {
                 group_empty_view?.visibility = View.VISIBLE
@@ -226,15 +208,14 @@ class AppointmentBookingFragment : BaseFragment() {
                 group_empty_view?.visibility = View.INVISIBLE
                 group_content?.visibility = View.VISIBLE
                 viewLifecycleOwner.lifecycleScope.launch {
-                    getUnAvailableDaysFlow().zip(getAvailableDaysModFlow(it)) { lstOfNonAvailableDays, lstOfAvailableDays ->
+                    getUnAvailableDaysFlow().zip(getAvailableDaysFlow(it)) { lstOfNonAvailableDays, lstOfAvailableDays ->
                         val result: ArrayList<DayViewDecorator> = ArrayList()
                         result.addAll(lstOfNonAvailableDays)
                         result.addAll(lstOfAvailableDays)
                         return@zip result
-                    }.flowOn(Dispatchers.Default)
+                    }.flowOn(Dispatchers.IO)
                         .collect {
                             cal_view_schedule?.addDecorators(it)
-
                         }
                 }
             }
@@ -246,7 +227,7 @@ class AppointmentBookingFragment : BaseFragment() {
             val lstOfDays: MutableList<DayViewDecorator> = ArrayList()
             val formatter = DateTimeFormatter.ofPattern("d-M-yyyy")
             var date = minDateOfCalendar
-            while (date.isBefore(maxDateOfCalendar.plusDays(1))) {
+            while (date.isBefore(maxDateOfCalendar.plusDays(1))) { // .plusDays(1) may cause issue ???
                 val dateModified = formatter.format(date)
                 lstOfDays.add(UnAvailableCalendarDecorator(dateModified, resources))
                 date = date.plusDays(1)
@@ -254,9 +235,7 @@ class AppointmentBookingFragment : BaseFragment() {
             emit(lstOfDays)
         }
     }
-
-
-    private suspend fun getAvailableDaysModFlow(days: List<DoctorScheduleResponse.AvailableDate>): Flow<List<DayViewDecorator>> {
+    private suspend fun getAvailableDaysFlow(days: List<DoctorScheduleResponse.AvailableDate>): Flow<List<DayViewDecorator>> {
         return flow{
             val list = days.asFlow()
                 .map { item->
@@ -267,13 +246,12 @@ class AppointmentBookingFragment : BaseFragment() {
                     return@map dateTime
                 }
                 .filter {
-                    val diff: Int = it.compareTo(zonedDateTime)
-                    if (diff > 0 || diff == 0) {
+                    val diff: Int = it.toLocalDate().compareTo(zonedDateTime.toLocalDate())
+                    if (diff > 0 || diff == 0) {   // include / exclude current date with || diff == 0
                         return@filter true
                     }
                     return@filter false
                 }
-
                 .map {
                     val formattedDate: String = it.format(DateTimeFormatter.ofPattern("d-M-yyyy"))
                     return@map AvailableCalendarDecorator(formattedDate, resources)
@@ -282,7 +260,6 @@ class AppointmentBookingFragment : BaseFragment() {
                 .toList()
             emit(list)
         }
-
-
     }
+
 }

@@ -1,6 +1,6 @@
 package com.app.patlivecare.network
 
-import com.app.patlivecare.GeneralResponse
+import com.app.patlivecare.extra.GeneralResponse
 import com.app.patlivecare.appointment.model.DoctorScheduleResponse
 import com.app.patlivecare.appointment.model.DoctorTimeSlotResponse
 import com.app.patlivecare.blog.model.BlogDetailResponse
@@ -42,7 +42,7 @@ interface WebService {
     suspend fun attemptSignUp(@Body input: SignUpRequest): SignUpResponse
 
     @POST(WebUrl.SIGN_OUT)
-    suspend fun attemptSignOut(@HeaderMap token: Map<String, String>):GeneralResponse
+    suspend fun attemptSignOut(@HeaderMap token: Map<String, String>): GeneralResponse
 
     @Headers("content-type:application/json")
     @POST(WebUrl.SOCIAL_SIGN_IN)

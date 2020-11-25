@@ -57,6 +57,7 @@ class DoctorDetailFragment : BaseFragment() {
         if (context is HomeFragmentSelectedListener) mFragmentListener = context
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         languageAdapter = LanguageAdapter()
@@ -104,8 +105,7 @@ class DoctorDetailFragment : BaseFragment() {
                 .into(civ_profile)
         }
 
-        doctorInfo?.rating?.let {
-            showRatingBar(it) }
+        doctorInfo?.rating?.let { showRatingBar(it) }
 
 
     }
@@ -178,15 +178,12 @@ class DoctorDetailFragment : BaseFragment() {
 
     @ExperimentalStdlibApi
     private fun populateUi(info: DoctorDetailResponse.Data?) {
-
         if(info?.about.isNullOrEmpty()){
-            tv_about_me.text = "No Information"
+            tv_about_me.text = getString(R.string.tiitle_no_information)
             tv_more.visibility = View.INVISIBLE
         }else{
             tv_about_me.text = info?.about?.capitalize(Locale.ROOT)
         }
-
-
         // tv_is_verified.text=""
         info?.doctorEducation?.let {
             if (it.isNotEmpty()) {
@@ -195,10 +192,9 @@ class DoctorDetailFragment : BaseFragment() {
                     tv_education?.append("\n")
                 }
             } else {
-                tv_education?.text = "No Information"
+                tv_education?.text = getString(R.string.tiitle_no_information)
             }
         }
-
 
         info?.doctorLangauges?.let {
             if (it.isNotEmpty()) {
@@ -221,7 +217,7 @@ class DoctorDetailFragment : BaseFragment() {
         }
 
         info?.appointmentFees?.let {
-            val fee = "$"
+            val fee = getString(R.string.title_dollar)
                 .plus(" ")
                 .plus(it)
                 .plus(" ")
@@ -245,8 +241,6 @@ class DoctorDetailFragment : BaseFragment() {
             }
         }
 
-
-
     }
 
     @ExperimentalStdlibApi
@@ -264,7 +258,6 @@ class DoctorDetailFragment : BaseFragment() {
 
 
         viewModel.resultDoctorDetail.observe(viewLifecycleOwner, Observer {
-
             when (it.status) {
                 Status.SUCCESS -> {
                     it.data?.data.let { itt -> populateUi(itt) }
@@ -274,13 +267,6 @@ class DoctorDetailFragment : BaseFragment() {
                 }
             }
         })
-
-        viewModel.lstOfLanguage.observe(viewLifecycleOwner,Observer{
-
-
-        })
-
-
     }
 
 }

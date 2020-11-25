@@ -3,7 +3,6 @@ package com.app.patlivecare.appointment.view
 import android.content.Context
 import android.os.Bundle
 import android.os.Parcelable
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -66,7 +65,6 @@ class TimeSlotFragment : BaseFragment() {
 
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mornAdapter= TimeSlotAdapter()
@@ -82,34 +80,21 @@ class TimeSlotFragment : BaseFragment() {
             doctorInfo = it.getParcelable("KEY")
         }
 
-//        if(doctorInfo?.id !=null && doctorInfo?.date!=null){
-//            viewModel.fetchDoctorTimeSlot(doctorInfo!!.id,doctorInfo?.date?:"")
-//        }
-
         if(doctorInfo?.id !=null && doctorInfo?.date!=null){
              val dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")
              val selDateTime = LocalDateTime.parse(doctorInfo?.date, dtf)
              zonedDateTime = selDateTime.atZone(ZoneId.systemDefault())
              val utcDateTime:ZonedDateTime = zonedDateTime.withZoneSameInstant(ZoneOffset.UTC)
-         //    val prevDate = currDate.minusDays(1)
-         //    val nextDate = currDate.plusDays(1)
-             //dtf.format(prevDate), dtf.format(currDate), dtf.format(nextDate)
             val dtfOut = DateTimeFormatter.ofPattern("dd-MM-yyyy")
             viewModel.fetchDoctorTimeSlot(doctorInfo!!.id,dtfOut.format(utcDateTime))
-             //    Log.e("local : ",dtf.format(zonedDateTime))
-             //    Log.e("utc : ", dtf.format(utcDateTime))
-            //manipulating data ....................
+            //     manipulating data ....................
             val dtff = DateTimeFormatter.ofPattern("dd-MM-yyyy")
             val localDate = LocalDateTime.parse(doctorInfo!!.date,DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"))
             doctorInfo!!.date=dtff.format(localDate)
           }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_time_slot, container, false)
     }
 
@@ -117,9 +102,7 @@ class TimeSlotFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tv_header_title?.text = getString(R.string.title_select_time_slot)
-        if(activity is AppCompatActivity) (activity as AppCompatActivity).setSupportActionBar(
-            toolbar_main
-        )
+        if(activity is AppCompatActivity) (activity as AppCompatActivity).setSupportActionBar(toolbar_main)
 
         rv_time_slot_morn?.apply {
             layoutManager = GridLayoutManager(activity, 3)
@@ -129,7 +112,6 @@ class TimeSlotFragment : BaseFragment() {
             layoutManager = GridLayoutManager(activity, 3)
             adapter=evenAdapter
         }
-
 
         mornAdapter?.setOnItemClickListener(object : TimeSlotAdapter.OnItemClickListener {
             override fun onItemClick(model: TimeSlotInfo, adapterPosition: Int) {
@@ -162,24 +144,23 @@ class TimeSlotFragment : BaseFragment() {
 
     private fun initListener() {
         iv_previous?.setOnClickListener {
-            viewModel.showSlots.value=1
+            if(viewModel.showSlots.value!=1) viewModel.showSlots.value=1
         }
 
         iv_forward?.setOnClickListener {
-            viewModel.showSlots.value=2
+            if(viewModel.showSlots.value!=2) viewModel.showSlots.value=2
         }
 
         ibtn_close?.setOnClickListener {
             mFragmentListener?.popTopMostFragment()
         }
 
-        cardview_one?.setOnClickListener{}
-        cardview_two?.setOnClickListener{}
+        cardview_one?.setOnClickListener{} // ripple effect
+        cardview_two?.setOnClickListener{} // ripple effect
     }
 
     @ExperimentalStdlibApi
     private fun initView() {
-
         doctorInfo?.let {
             if (!it.profilePic.isNullOrEmpty()) {
                 Glide.with(this)
@@ -217,11 +198,6 @@ class TimeSlotFragment : BaseFragment() {
 
 
 private fun initObserver() {
-    viewModel.isLoading.observe(viewLifecycleOwner, Observer {
-        if (it) progress_bar?.visibility = View.VISIBLE
-        else progress_bar?.visibility = View.INVISIBLE
-    })
-
     viewModel.showSlots.observe(viewLifecycleOwner, Observer {
         when (it) {
             1 -> {
@@ -244,7 +220,7 @@ private fun initObserver() {
                 it.data?.data?.let { lstOfTimeSlots ->
                     viewLifecycleOwner.lifecycleScope.launch {
                         getTimeSlotFlow(lstOfTimeSlots)
-                            .flowOn(Dispatchers.Default)
+                            .flowOn(Dispatchers.IO)
                             .collect { result ->
                                 viewModel.lstOfTimeSlots.value = lstOfTimeSlots
                             }
@@ -258,6 +234,7 @@ private fun initObserver() {
     })
 
     viewModel.lstOfTimeSlots.observe(viewLifecycleOwner, Observer {
+
         if (it.isEmpty()) {
             group_empty_view?.visibility = View.VISIBLE
             group_content?.visibility = View.INVISIBLE
@@ -282,6 +259,11 @@ private fun initObserver() {
             }
         }
     })
+
+    viewModel.isLoading.observe(viewLifecycleOwner, Observer {
+        if (it) progress_bar?.visibility=View.VISIBLE
+        else progress_bar?.visibility=View.INVISIBLE
+    })
 }
 
     private suspend fun getTimeSlotFlow(lstOfTimeSlot: List<TimeSlotInfo>): Flow<List<TimeSlotInfo>> {
@@ -295,22 +277,21 @@ private fun initObserver() {
                     it.slotFrom=dateTime.format(outFormatter)
                     return@map it
                 }
-                .filter {
+                .filter {  // only selected date slots
                     val inFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss", Locale.getDefault())
                     val outFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", Locale.getDefault())
                     val dateTimeIn = LocalDate.parse(it.slotFrom, inFormatter)
                     val formattedDate: String =dateTimeIn.format(outFormatter)
                     val dateTimeOut = LocalDate.parse(formattedDate, outFormatter)
                     val diffX: Int = dateTimeOut.compareTo(zonedDateTime.toLocalDate())
-                 //    Log.e("diffX : ", it.timeSlotId.toString()+" "+diffX)
                     if (diffX==0) {
                         return@filter true
                     }
                     return@filter false
                 }
                 .map {
-                    val inFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss", Locale.getDefault()) // 01-09-2020 ---> 1-9-2020
-                    val outFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm:ss a", Locale.getDefault()) // 01-09-2020 ---> 1-9-2020
+                    val inFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss", Locale.getDefault())
+                    val outFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm:ss a", Locale.getDefault())
                     val dateTime = LocalDateTime.parse(it.slotFrom, inFormatter)
                     val formattedDate: String =dateTime.format(outFormatter)
                     it.slotFrom=formattedDate

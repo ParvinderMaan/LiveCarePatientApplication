@@ -106,8 +106,8 @@ class AppointmentRequestFragment  : BaseFragment() {
             fragment.show(childFragmentManager, "TAG")
         }
 
-        cardview?.setOnClickListener {}
-        cardview_1?.setOnClickListener {}
+        card_view_top?.setOnClickListener {}
+        card_view_bottom?.setOnClickListener {}
 
         initView()
         initObserver()
@@ -161,7 +161,7 @@ class AppointmentRequestFragment  : BaseFragment() {
             }
 
             it.appointmentFees?.let {
-                val fee = "$"
+                val fee = getString(R.string.title_dollar)
                     .plus(" ")
                     .plus(it)
                     .plus(" ")
@@ -187,6 +187,7 @@ class AppointmentRequestFragment  : BaseFragment() {
         viewModel.resultAppointmentReq.observe(viewLifecycleOwner, Observer {
             when (it.status) {
                 Status.SUCCESS -> {
+                    viewModel.isViewEnable.value=false
                     showSnackBar(it.data?.message.toString())
                 }
                 Status.FAILURE -> {

@@ -3,7 +3,7 @@ package com.app.patlivecare.videocall.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.app.patlivecare.GeneralResponse
+import com.app.patlivecare.extra.GeneralResponse
 import com.app.patlivecare.LiveCareApplication
 import com.app.patlivecare.extra.WebResponse
 import com.app.patlivecare.network.WebService

@@ -90,7 +90,7 @@ tools:context=".appointment.view.TimeSlotFragment">
             android:layout_width="@dimen/_80sdp"
             android:layout_height="@dimen/_80sdp"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
             android:src="@drawable/img_doctor_dummy"
             app:civ_border_color="@color/colorTurquoise"
             app:civ_border_width="5dp"
@@ -107,7 +107,7 @@ tools:context=".appointment.view.TimeSlotFragment">
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_8sdp"
             android:includeFontPadding="false"
-            android:text="Dr. William Jones"
+            tools:text="Dr. William Jones"
             android:textAllCaps="true"
             android:textColor="@color/colorTurquoise"
             android:layout_marginEnd="@dimen/_8sdp"
@@ -124,7 +124,7 @@ tools:context=".appointment.view.TimeSlotFragment">
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_8sdp"
-            android:text="Dentist"
+            tools:text="Dentist"
             android:textColor="@color/colorLightBlack"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -136,13 +136,13 @@ tools:context=".appointment.view.TimeSlotFragment">
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_2sdp"
-            android:drawableLeft="@drawable/ic_tick_black"
             android:drawablePadding="@dimen/_2sdp"
             android:text="Verified"
             android:textColor="@color/colorLightBlack"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@+id/tv_speciality"
-            app:layout_constraintTop_toBottomOf="@+id/tv_speciality" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_speciality"
+            app:drawableStartCompat="@drawable/ic_tick_black" />
 
 
         <TextView
@@ -163,58 +163,8 @@ tools:context=".appointment.view.TimeSlotFragment">
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_profile"
             app:layout_constraintVertical_bias="0.0" />
-
-
-        <!--            <ImageView-->
-        <!--                android:id="@+id/iv_star_one"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                app:layout_constraintEnd_toStartOf="@+id/iv_star_two"-->
-        <!--                android:layout_marginEnd="@dimen/_2sdp"-->
-        <!--                app:layout_constraintTop_toTopOf="@+id/iv_star_five"-->
-        <!--                app:srcCompat="@drawable/ic_star_on_turq" />-->
-
-        <!--            <ImageView-->
-        <!--                android:id="@+id/iv_star_two"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                app:layout_constraintEnd_toStartOf="@+id/iv_star_three"-->
-        <!--                android:layout_marginEnd="@dimen/_2sdp"-->
-        <!--                app:layout_constraintTop_toTopOf="@+id/iv_star_five"-->
-        <!--                app:srcCompat="@drawable/ic_star_on_turq" />-->
-
-        <!--            <ImageView-->
-        <!--                android:id="@+id/iv_star_three"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_marginEnd="@dimen/_2sdp"-->
-        <!--                app:layout_constraintEnd_toStartOf="@+id/iv_star_four"-->
-        <!--                app:layout_constraintTop_toTopOf="@+id/iv_star_five"-->
-        <!--                app:srcCompat="@drawable/ic_star_on_turq" />-->
-
-        <!--            <ImageView-->
-        <!--                android:id="@+id/iv_star_four"-->
-        <!--                android:layout_marginEnd="@dimen/_2sdp"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                app:layout_constraintEnd_toStartOf="@+id/iv_star_five"-->
-        <!--                app:layout_constraintTop_toTopOf="@+id/iv_star_five"-->
-        <!--                app:srcCompat="@drawable/ic_star_off_turq" />-->
-
-        <!--            <ImageView-->
-        <!--                android:id="@+id/iv_star_five"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                app:layout_constraintEnd_toEndOf="parent"-->
-        <!--                app:layout_constraintTop_toTopOf="parent"-->
-        <!--                android:layout_marginTop="@dimen/_10sdp"-->
-        <!--                android:layout_marginEnd="@dimen/_10sdp"-->
-        <!--                app:srcCompat="@drawable/ic_star_off_turq" />-->
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
-
-
 <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardview_two"
         android:layout_width="0dp"
@@ -225,8 +175,8 @@ tools:context=".appointment.view.TimeSlotFragment">
         android:theme="@style/Theme.MaterialComponents.Light"
         app:cardBackgroundColor="#dceff1"
         app:cardCornerRadius="10dp"
-    android:background="?attr/selectableItemBackground"
-    app:cardElevation="2dp"
+        android:background="?attr/selectableItemBackground"
+        app:cardElevation="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
         app:layout_constraintStart_toStartOf="@+id/guideline_start"
@@ -338,6 +288,7 @@ tools:context=".appointment.view.TimeSlotFragment">
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/_8sdp"
+                android:padding="@dimen/_5sdp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_arrow_right"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_session"
@@ -348,6 +299,7 @@ tools:context=".appointment.view.TimeSlotFragment">
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_8sdp"
+                android:padding="@dimen/_5sdp"
                 android:src="@drawable/ic_arrow_left"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_session"
@@ -355,7 +307,6 @@ tools:context=".appointment.view.TimeSlotFragment">
                 app:layout_constraintTop_toTopOf="@+id/tv_session" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
-
 
 
 <androidx.constraintlayout.widget.Guideline
@@ -383,23 +334,12 @@ tools:context=".appointment.view.TimeSlotFragment">
     android:orientation="horizontal"
     app:layout_constraintGuide_begin="@dimen/_16sdp" />
 
-    <androidx.constraintlayout.widget.Group
+<androidx.constraintlayout.widget.Group
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="visible"
         app:constraint_referenced_ids="cardview_one,cardview_two"
         android:id="@+id/group_content" />
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
@@ -428,4 +368,18 @@ tools:context=".appointment.view.TimeSlotFragment">
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="tv_empty_state,iv_empty_state"
         android:id="@+id/group_empty_view" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:elevation="2dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/cardview_two"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cardview_two" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

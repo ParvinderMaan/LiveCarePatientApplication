@@ -1,20 +1,12 @@
 package com.app.patlivecare.consult.repository
 
-import com.app.patlivecare.GeneralResponse
-import com.app.patlivecare.appointment.model.DoctorScheduleResponse
-import com.app.patlivecare.appointment.repository.AppointmentRepository
-import com.app.patlivecare.consult.model.AppointmentInfo
+import com.app.patlivecare.extra.GeneralResponse
 import com.app.patlivecare.consult.model.UpcomingAppointmentResponse
 import com.app.patlivecare.network.WebService
 import com.google.gson.JsonObject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*
-import org.threeten.bp.LocalDateTime
-import org.threeten.bp.ZoneId
-import org.threeten.bp.ZoneOffset
-import org.threeten.bp.format.DateTimeFormatter
-import java.util.*
 
 class UpcomingAppointmentRepository (val webService: WebService) {
     @ExperimentalCoroutinesApi

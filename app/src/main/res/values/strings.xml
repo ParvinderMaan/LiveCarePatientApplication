@@ -304,5 +304,10 @@ Private Policy- The Company uses third party providers to manage the data securi
     <string name="title_add_user_review">Add User Review</string>
     <string name="hint_describe_your_experience">Describe your experience</string>
     <string name="action_post">Post</string>
+    <string name="key_stripe_publishable">pk_test_51Hqv3vEY974dx7DZeWX5MQP87hH9dQBjXvS4QdPhRtQ8BtcBvFjdJuWRAuEyya1PrKIeH1r7B8hPWbc0MCvjVo6Y00gSdV1nDw</string>
+    <string name="key_stripe_secret">sk_test_51Hqv3vEY974dx7DZnG88AmoFkNbwpb6vCndFgqim7h5LIKWuqdETkiwgrw8nQn2oz2EARZ5mlqwbijlTRbUet1Tx00aGqFVNHe</string>
+    <string name="action_retry">Retry</string>
+    <string name="title_dollar">$</string>
+    <string name="tiitle_no_information">No Information</string>
 
 </resources>

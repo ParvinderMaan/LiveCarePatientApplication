@@ -1,10 +1,7 @@
 package com.app.patlivecare.profile.repository
 
-import com.app.patlivecare.GeneralResponse
 import com.app.patlivecare.network.WebService
 import com.app.patlivecare.profile.model.AlterProfilePicResponse
-import com.app.patlivecare.signin.model.SignInRequest
-import com.app.patlivecare.signup.model.SignUpResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow

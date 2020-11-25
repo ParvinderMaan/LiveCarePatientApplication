@@ -1,7 +1,6 @@
 package com.app.patlivecare.rating.repository
 
-import com.app.patlivecare.GeneralResponse
-import com.app.patlivecare.doctor.model.DoctorDetailResponse
+import com.app.patlivecare.extra.GeneralResponse
 import com.app.patlivecare.network.WebService
 import com.app.patlivecare.rating.model.DoctorRatingResponse
 import com.google.gson.JsonObject

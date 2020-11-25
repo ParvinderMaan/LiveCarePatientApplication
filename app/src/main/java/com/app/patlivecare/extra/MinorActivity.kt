@@ -1,9 +1,10 @@
-package com.app.patlivecare
+package com.app.patlivecare.extra
 
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.app.patlivecare.R
 import com.app.patlivecare.annotation.FragmentType
 import com.app.patlivecare.appointment.view.AppointmentBookingFragment
 import com.app.patlivecare.appointment.view.AppointmentRequestFragment
@@ -26,6 +27,7 @@ import com.app.patlivecare.prescription.view.PrescriptionDetailFragment
 import com.app.patlivecare.rating.view.AddDoctorReviewFragment
 import com.app.patlivecare.rating.view.DoctorRatingFragment
 import com.app.patlivecare.rating.view.DoctorReviewFragment
+import com.app.patlivecare.rating.view.ReportFragment
 import com.app.patlivecare.videocall.view.WaitingRoomFragment
 
 
