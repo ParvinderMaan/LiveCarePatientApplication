@@ -1,23 +1,14 @@
 package com.app.patlivecare.signup.view
 
-import android.app.Activity
-import android.content.Context
-import android.content.pm.PackageInfo
-import android.content.pm.PackageManager
+
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Base64
-import android.util.Log
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentManager
 import com.app.patlivecare.R
-import com.app.patlivecare.miscellaneous.view.TermAndConditionFragment
+import com.app.patlivecare.helper.Common
 import com.app.patlivecare.signin.view.SignInFragment
 import kotlinx.android.synthetic.main.activity_authentication.*
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
 
 
 class AuthenticationActivity : AppCompatActivity() {
@@ -45,7 +36,8 @@ class AuthenticationActivity : AppCompatActivity() {
                 tv_title?.text = getString(R.string.title_sign_up)
             }
          }
-        printKeyHash()
+        // print facebook key..
+        Common.printKeyHash(packageManager)
     }
 
     public fun  showSignUpFragment(){
@@ -70,19 +62,5 @@ class AuthenticationActivity : AppCompatActivity() {
         supportFragmentManager.popBackStack()
     }
 
-    private fun printKeyHash() {
-        // Add code to print out the key hash
-        try {
-            val info: PackageInfo = packageManager.getPackageInfo("com.app.patlivecare", PackageManager.GET_SIGNATURES)
-            for (signature in info.signatures) {
-                val md: MessageDigest = MessageDigest.getInstance("SHA")
-                md.update(signature.toByteArray())
-                Log.e("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT))
-            }
-        } catch (e: PackageManager.NameNotFoundException) {
-            Log.e("KeyHash:", e.toString())
-        } catch (e: NoSuchAlgorithmException) {
-            Log.e("KeyHash:", e.toString())
-        }
-    }
+
 }

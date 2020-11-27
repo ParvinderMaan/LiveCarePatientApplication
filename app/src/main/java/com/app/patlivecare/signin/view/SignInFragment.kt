@@ -146,8 +146,6 @@ class SignInFragment : BaseFragment() {
         }
 
         tv_sign_up?.setOnClickListener {
-     //       edt_email?.addTextChangedListener(null)
-     //       edt_password?.addTextChangedListener(null)
             (activity as AuthenticationActivity).showSignUpFragment()
         }
 
@@ -239,8 +237,8 @@ class SignInFragment : BaseFragment() {
         var isPassword =true
         val usrEmail = edt_email?.text.toString()
         val usrPassword = edt_password.text.toString()
-        viewModel.signInRequest?.email=usrEmail
-        viewModel.signInRequest?.password=usrPassword
+        viewModel.signInRequest.email =usrEmail
+        viewModel.signInRequest.password =usrPassword
 
         if (TextUtils.isEmpty(usrEmail)) {
             edt_email?.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_tick_red, 0)

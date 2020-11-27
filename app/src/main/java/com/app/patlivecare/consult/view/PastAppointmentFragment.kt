@@ -20,7 +20,14 @@ import com.app.patlivecare.doctor.model.DoctorInfo
 import com.app.patlivecare.helper.SharedPrefHelper
 import com.app.patlivecare.network.WebHeader
 import kotlinx.android.synthetic.main.fragment_past_appointment.*
-import java.util.HashMap
+import kotlinx.coroutines.flow.*
+import org.threeten.bp.Duration
+import org.threeten.bp.LocalDateTime
+import org.threeten.bp.ZoneId
+import org.threeten.bp.ZoneOffset
+import org.threeten.bp.format.DateTimeFormatter
+import java.util.*
+import kotlin.math.abs
 
 
 class PastAppointmentFragment : Fragment() {
@@ -144,4 +151,6 @@ class PastAppointmentFragment : Fragment() {
         })
 
     }
+
+
 }

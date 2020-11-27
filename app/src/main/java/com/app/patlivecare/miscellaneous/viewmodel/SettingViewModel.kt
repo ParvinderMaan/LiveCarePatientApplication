@@ -23,6 +23,8 @@ class SettingViewModel (application: Application) : AndroidViewModel(application
     private var webService: WebService
     var isLoading: MutableLiveData<Boolean>
     var isViewEnable: MutableLiveData<Boolean>
+    var isEmailChecked: Boolean?=false
+    var isSmsChecked:Boolean=false
     var resultantSignOut: MutableLiveData<WebResponse<GeneralResponse>>
     var resultantSmsService: MutableLiveData<WebResponse<GeneralResponse>>
     var resultantEmailService: MutableLiveData<WebResponse<GeneralResponse>>

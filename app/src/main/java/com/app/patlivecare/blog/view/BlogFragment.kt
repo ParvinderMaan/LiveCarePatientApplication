@@ -44,7 +44,7 @@ class BlogFragment : Fragment() {
         headerMap[WebHeader.KEY_AUTHORIZATION] = "Bearer "+accessToken
         viewModel = ViewModelProvider(this).get(BlogViewModel::class.java)
         viewModel.headers= headerMap
-        blogAdapter = BlogAdapter(Date())
+        blogAdapter = BlogAdapter()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -54,7 +54,6 @@ class BlogFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.fetchBlogs()
-
         rv_blog?.apply {
             layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
             adapter = blogAdapter
@@ -67,9 +66,7 @@ class BlogFragment : Fragment() {
                 startActivity(intent)
             }
         })
-
         initObserver()
-
     }
     private fun initObserver() {
         viewModel.isLoading.observe(viewLifecycleOwner,
@@ -82,7 +79,6 @@ class BlogFragment : Fragment() {
         viewModel.isListEmpty.observe(viewLifecycleOwner,
             Observer {
                 if (it) group_empty_view?.visibility = View.VISIBLE })
-
 
 
         viewModel.userPagedList.observe(viewLifecycleOwner, Observer {

@@ -213,7 +213,7 @@ interface WebService {
     suspend fun attemptAppointmentProcess(@HeaderMap token: Map<String, String>,@Body inn: JsonObject): GeneralResponse
 
     @GET(WebUrl.GRAB_VIDEO_TOKEN)
-    fun fetchVideoToken(@HeaderMap token: Map<String, String>,@Query("AppointmentId") appointmentId:String): VideoTokenResponse
+    suspend fun fetchVideoToken(@HeaderMap token: Map<String, String>,@Query("AppointmentId") appointmentId:String): VideoTokenResponse
 
 
     @GET(WebUrl.FETCH_DOC_RATING)

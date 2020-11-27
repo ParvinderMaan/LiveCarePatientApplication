@@ -14,8 +14,7 @@ import kotlinx.android.synthetic.main.list_item_language.view.*
 class LanguageAdapter : ListAdapter<DoctorDetailResponse.Language,LanguageAdapter.SpecialityViewHolder>(ITEM_COMPARATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpecialityViewHolder {
-        return SpecialityViewHolder(
-            LayoutInflater.from(parent.context)
+        return SpecialityViewHolder(LayoutInflater.from(parent.context)
             .inflate(R.layout.list_item_language, parent, false))
     }
 
@@ -35,8 +34,6 @@ class LanguageAdapter : ListAdapter<DoctorDetailResponse.Language,LanguageAdapte
             itemView.tv_language?.text = (model.name)
             // itemView.iv_category
         }
-
-
     }
 
     companion object {

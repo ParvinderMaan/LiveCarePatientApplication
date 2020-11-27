@@ -351,10 +351,7 @@ class UpcomingAppointmentFragment : BaseFragment() {
                     3 -> {
                         // cancel the request ........
                         viewModel.itemToBeDeleted = adapterPosition
-                        viewModel.attemptCancelAppointment(
-                            item!!.appointmentId,
-                            AppointmentStatus.CANCELLED
-                        )
+                        viewModel.attemptCancelAppointment(item!!.appointmentId, AppointmentStatus.CANCELLED)
                     }
                     4 -> {
                         // view profile .....

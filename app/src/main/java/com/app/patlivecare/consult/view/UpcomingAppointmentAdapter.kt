@@ -16,6 +16,7 @@ import com.app.patlivecare.helper.TimeUtil
 import com.app.patlivecare.network.WebUrl
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import kotlinx.android.synthetic.main.fragment_waiting_room.*
 import kotlinx.android.synthetic.main.list_item_upcoming_consult.view.*
 import org.threeten.bp.LocalDateTime
 import org.threeten.bp.ZoneId
@@ -139,6 +140,8 @@ class UpcomingAppointmentAdapter() : ListAdapter<AppointmentInfo, UpcomingAppoin
                                 }
                                 override fun onFinish() {
                                     timer == null
+                                    model.remainingTime == -1L
+                                    itemView.textView?.text ="Call in Progress.."
                                     //   Log.e("new object",pos.toString()+" dead")
                                 }
                             }.start()

@@ -85,7 +85,7 @@ class TimeSlotFragment : BaseFragment() {
              val selDateTime = LocalDateTime.parse(doctorInfo?.date, dtf)
              zonedDateTime = selDateTime.atZone(ZoneId.systemDefault())
              val utcDateTime:ZonedDateTime = zonedDateTime.withZoneSameInstant(ZoneOffset.UTC)
-            val dtfOut = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+             val dtfOut = DateTimeFormatter.ofPattern("dd-MM-yyyy")
             viewModel.fetchDoctorTimeSlot(doctorInfo!!.id,dtfOut.format(utcDateTime))
             //     manipulating data ....................
             val dtff = DateTimeFormatter.ofPattern("dd-MM-yyyy")

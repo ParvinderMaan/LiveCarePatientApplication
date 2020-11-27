@@ -76,11 +76,7 @@ class HomeFragment : BaseFragment() {
 
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
@@ -105,15 +101,13 @@ class HomeFragment : BaseFragment() {
             layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
             adapter = specialityAdapter
             if(!isAnimateOnce)layoutAnimation=mLayoutAnimation
-            specialityAdapter?.setOnItemClickListener(object :
-                DoctorSpecialityAdapter.OnItemClickListener {
+            specialityAdapter?.setOnItemClickListener(object : DoctorSpecialityAdapter.OnItemClickListener {
                 override fun onItemClick(model: SpecialityInfo, adapterPosition: Int) {
                     val intent = Intent(activity, MinorActivity::class.java)
                     intent.putExtra("key_", model.id.toString())
                     intent.putExtra("fragment_type", FragmentType.FIND_DOCTOR_FRAGMENT)
                     startActivity(intent)
                 }
-
             })
         }
         rv_our_top_doctors?.apply {
@@ -168,11 +162,7 @@ class HomeFragment : BaseFragment() {
             if (activity is HomeActivity) (activity as HomeActivity).showProfileFragment()
             viewModel.resultPatientInfo.value=null
         }
-
     }
-
-
-
 
     private fun initObserver() {
         viewModel.isLoading.observe(viewLifecycleOwner,
@@ -180,7 +170,6 @@ class HomeFragment : BaseFragment() {
                 if (it) pro_bar?.show()
                 else pro_bar?.hide()
             })
-
 
         viewModel.lstOfSpeciality.observe(viewLifecycleOwner, Observer {
             if (it.isNotEmpty()) {
@@ -199,8 +188,6 @@ class HomeFragment : BaseFragment() {
                 tv_more_top_doctor.visibility = View.VISIBLE
             }
         })
-
-
 
         viewModel.resultantSpeciality.observe(viewLifecycleOwner, Observer {
             when (it.status) {

@@ -19,11 +19,13 @@ import kotlinx.android.synthetic.main.list_item_past_consult.view.tv_date_of_mon
 import kotlinx.android.synthetic.main.list_item_past_consult.view.tv_doc_name
 import kotlinx.android.synthetic.main.list_item_past_consult.view.tv_speciality
 import kotlinx.android.synthetic.main.list_item_past_consult.view.tv_time_slot
-import kotlinx.android.synthetic.main.list_item_upcoming_consult.view.*
-import org.threeten.bp.LocalDate
+import org.threeten.bp.Duration
+import org.threeten.bp.LocalDateTime
+import org.threeten.bp.ZoneId
+import org.threeten.bp.ZoneOffset
 import org.threeten.bp.format.DateTimeFormatter
-import org.threeten.bp.format.TextStyle
 import java.util.*
+import kotlin.math.abs
 
 class PastAppointmentAdapter : PagedListAdapter<AppointmentInfo,PastAppointmentAdapter.MiViewHolder>(ITEM_COMPARATOR) {
     private var mItemClickListener: OnItemClickListener? = null
@@ -53,21 +55,15 @@ class PastAppointmentAdapter : PagedListAdapter<AppointmentInfo,PastAppointmentA
         val item = getItem(pos)
         val viewHolder = holder
         item?.let {itt ->
-            viewHolder.bindView(itt,viewHolder.adapterPosition)
-            holder.itemView.ibtn_more?.setOnClickListener {
-                mItemClickListener?.onItemMoreClick(holder.itemView.ibtn_more,itt)
-       }
+            viewHolder.bindView(itt,viewHolder.adapterPosition,mItemClickListener)
+        }
 
-        }
-        holder.itemView?.setOnClickListener {
-            mItemClickListener?.onItemClick(item)
-        }
 
 
     }
 
     class MiViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bindView(model: AppointmentInfo, pos: Int) {
+        fun bindView(model: AppointmentInfo, pos: Int, itemClickListener: OnItemClickListener?) {
 
             itemView.context.getString(R.string.title_dr)
                 .plus(" ")
@@ -99,6 +95,20 @@ class PastAppointmentAdapter : PagedListAdapter<AppointmentInfo,PastAppointmentA
                 }
                 itemView.civ_doc?.setBackgroundColor(bgColor)
             }
+            //.............processing date
+            val outFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss", Locale.getDefault())
+            val dateTimeFrom = LocalDateTime.parse(model.slotFrom, outFormatter)
+                .atOffset(ZoneOffset.UTC)
+                .atZoneSameInstant(ZoneId.systemDefault())
+            val formattedDateFrom: String = dateTimeFrom.format(outFormatter)
+            model.slotFrom=formattedDateFrom
+            //............processing date
+            val dateTimeTo = LocalDateTime.parse(model.slotTo, outFormatter)
+                .atOffset(ZoneOffset.UTC)
+                .atZoneSameInstant(ZoneId.systemDefault())
+            val formattedDateTo: String = dateTimeTo.format(outFormatter)
+            model.slotTo=formattedDateTo
+
 
             model.slotFrom?.let {
                 val inFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")
@@ -135,6 +145,13 @@ class PastAppointmentAdapter : PagedListAdapter<AppointmentInfo,PastAppointmentA
                     itemView.appointment_status_.visibility = View.INVISIBLE
                     itemView.appointment_status.visibility = View.INVISIBLE
                 }
+            }
+
+            itemView.ibtn_more?.setOnClickListener {
+                itemClickListener?.onItemMoreClick(itemView.ibtn_more,model)
+            }
+           itemView?.setOnClickListener {
+               itemClickListener?.onItemClick(model)
             }
         }
 

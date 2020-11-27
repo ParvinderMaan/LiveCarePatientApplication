@@ -102,6 +102,7 @@ class WaitingRoomFragment : BaseFragment() {
                         }
                         override fun onFinish() {
                             timer == null
+                            tv_remaining_time?.text ="Call in Progress.."
                             fbtn_join_call?.show()
                         }
                     }.start()

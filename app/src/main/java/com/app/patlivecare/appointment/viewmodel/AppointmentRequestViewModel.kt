@@ -49,7 +49,7 @@ class AppointmentRequestViewModel(application: Application) : AndroidViewModel(a
                 }
                 .onCompletion {
                     isLoading.value=false
-                    isViewEnable.value=true
+                 //   isViewEnable.value=true
                 }
                 .catch { exception ->
                     /* emit error state */

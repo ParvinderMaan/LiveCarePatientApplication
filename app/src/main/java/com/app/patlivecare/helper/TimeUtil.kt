@@ -48,5 +48,16 @@ class TimeUtil private constructor() {
             return String.format(Locale.getDefault(), "%02d hour %02d min %02d sec", hours, minutes,seconds)
         }
 
+
+        // Method to get days hours minutes seconds from milliseconds
+        fun getTimeSpanII(millisUntilFinished:Long):String{
+            var millisUntilFinished:Long = millisUntilFinished
+            val minutes = TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)
+            millisUntilFinished -= TimeUnit.MINUTES.toMillis(minutes)
+            val seconds = TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished)
+            // Format the string
+            return String.format(Locale.getDefault(), "%02d : %02d",minutes,seconds)
+        }
+
     }
 }

@@ -183,7 +183,6 @@ class AppointmentRequestFragment  : BaseFragment() {
             else btn_send_request?.visibility=View.INVISIBLE
         })
 
-
         viewModel.resultAppointmentReq.observe(viewLifecycleOwner, Observer {
             when (it.status) {
                 Status.SUCCESS -> {

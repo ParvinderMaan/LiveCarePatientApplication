@@ -26,6 +26,7 @@ class SplashActivity : AppCompatActivity() {
             Log.e("category -->",name.toString()) //: android.intent.category.LAUNCHER  print
         }
        */
+
         sharedPrefs = (applicationContext as LiveCareApplication).getSharedPrefInstance()
         isUserSignIn=sharedPrefs?.read(SharedPrefHelper.KEY_IS_SIGN_IN,false)
 

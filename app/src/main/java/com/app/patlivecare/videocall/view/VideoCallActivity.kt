@@ -7,6 +7,7 @@ import android.net.Uri
 import android.opengl.GLSurfaceView
 import android.os.Build
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.provider.Settings
 import android.util.Log
 import android.view.View
@@ -17,6 +18,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.app.patlivecare.extra.MinorActivity
 import com.app.patlivecare.R
 import com.app.patlivecare.annotation.FragmentType
+import com.app.patlivecare.helper.TimeUtil
 import com.app.patlivecare.videocall.model.VideoTokenResponse
 import com.app.patlivecare.videocall.viewmodel.VideoCallViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -29,15 +31,17 @@ import com.opentok.android.*
 import com.opentok.android.Session.ConnectionListener
 import kotlinx.android.synthetic.main.activity_video_call.*
 import kotlinx.android.synthetic.main.activity_video_call.cl_root
+import kotlinx.android.synthetic.main.list_item_upcoming_consult.view.*
 
 
 class VideoCallActivity : AppCompatActivity() {
     private lateinit var viewModel: VideoCallViewModel
-    private var videoCallInfo: VideoTokenResponse.Data?=null
+    private var videoCallInfo: VideoTokenResponse.VideoCallInfo?=null
     private var session: Session? = null
     private var publisher: Publisher? = null
     private var subscriber: Subscriber? = null
     private var snackBarPermission: Snackbar? = null
+    var timer:CountDownTimer?=null
 
     companion object {
         // default
@@ -72,6 +76,24 @@ class VideoCallActivity : AppCompatActivity() {
 
         initListener()
         initObserver()
+
+        // timer is missing ...........
+        // tv_call_duration
+        //timer
+        if (timer == null) {
+            // 15 minutes hardcoded ,need to be changed..
+            timer = object : CountDownTimer(900000, 1000) {
+                override fun onTick(millisUntilFinished: Long) {
+                    tv_call_duration.textView?.text =TimeUtil.getTimeSpan(millisUntilFinished)
+
+                }
+                override fun onFinish() {
+                    // cut call ...
+                    tv_call_duration.textView?.text ="00:00"
+                //   Log.e("new object",pos.toString()+" dead")
+                }
+            }.start()
+        }
     }
 
     private fun initObserver() {
@@ -89,7 +111,6 @@ class VideoCallActivity : AppCompatActivity() {
                }
         })
 
-
         viewModel.isAudioPublished.observe(this, Observer {
             if (publisher == null) return@Observer
 
@@ -102,7 +123,6 @@ class VideoCallActivity : AppCompatActivity() {
                 }
 
         })
-
 
         viewModel.isDoctorArrived.observe(this, Observer {
           //  if (subscriber == null) return@Observer
@@ -119,12 +139,10 @@ class VideoCallActivity : AppCompatActivity() {
 
     private fun initListener() {
         iv_start_end_call?.setOnClickListener {
-
-           // finish()
+            // finish()
             if (session == null) return@setOnClickListener
             // by default
             initiateCall()
-
         }
 
         iv_switch_voice?.setOnClickListener {
@@ -192,7 +210,6 @@ class VideoCallActivity : AppCompatActivity() {
             fl_subscriber_container?.addView(subscriber?.view)
 
         }
-
     }
 
 //--------------------------------------------------------------------------------------------------
@@ -279,8 +296,7 @@ private var  sessionListener:Session.SessionListener? = object :  Session.Sessio
         else  iv_start_end_call?.setImageResource(R.drawable.ic_call_start)
         group_surface?.visibility=View.VISIBLE
         group_controls?.visibility=View.VISIBLE
-        // timer is missing ...........
-        //tv_call_duration
+
     }
     override fun onDisconnected(p0: Session?) {
         Log.e("TAG", "SessionListener onDisconnected : ")

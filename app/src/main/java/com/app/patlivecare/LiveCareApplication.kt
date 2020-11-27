@@ -5,9 +5,8 @@ import com.app.patlivecare.network.ServiceGenerator
 import com.app.patlivecare.helper.SharedPrefHelper
 import com.app.patlivecare.network.WebService
 import com.facebook.FacebookSdk
-import com.intuit.sdp.BuildConfig
 import com.jakewharton.threetenabp.AndroidThreeTen
-//import com.stripe.android.PaymentConfiguration
+// import com.stripe.android.PaymentConfiguration
 
 
 class LiveCareApplication : Application() {
