@@ -81,16 +81,15 @@ class VideoCallActivity : AppCompatActivity() {
         // tv_call_duration
         //timer
         if (timer == null) {
-            // 15 minutes hardcoded ,need to be changed..
+            // 15 minutes hardcoded , need to be changed..
             timer = object : CountDownTimer(900000, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
-                    tv_call_duration.textView?.text =TimeUtil.getTimeSpan(millisUntilFinished)
-
+                    tv_call_duration.textView?.text =TimeUtil.getTimeSpanII(millisUntilFinished)
                 }
                 override fun onFinish() {
                     // cut call ...
                     tv_call_duration.textView?.text ="00:00"
-                //   Log.e("new object",pos.toString()+" dead")
+                //  Log.e("new object",pos.toString()+" dead")
                 }
             }.start()
         }
@@ -107,26 +106,23 @@ class VideoCallActivity : AppCompatActivity() {
                 initTokBoxSession()
                 initiateCall()
                } else{
-                   showPermissionSnackBar()
+                showPermissionSnackBar()
                }
         })
 
         viewModel.isAudioPublished.observe(this, Observer {
             if (publisher == null) return@Observer
-
-               if (publisher!!.publishAudio) {
+            if (publisher!!.publishAudio) {
                     publisher?.publishAudio = false
                     iv_switch_voice?.setImageResource(R.drawable.ic_mute)
                 } else {
                     publisher?.publishAudio = true
                     iv_switch_voice?.setImageResource(R.drawable.ic_mute_)
                 }
-
         })
 
         viewModel.isDoctorArrived.observe(this, Observer {
           //  if (subscriber == null) return@Observer
-
             if (it) {
                 tv_waiting_prompt?.visibility=View.VISIBLE
               //  group_controls?.visibility=View.VISIBLE
@@ -156,9 +152,7 @@ class VideoCallActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        fl_publisher_container?.setOnClickListener {
-
-        }
+        fl_publisher_container?.setOnClickListener {}
 
         iv_switch_camera?.setOnClickListener {
             if (publisher != null)
@@ -169,13 +163,11 @@ class VideoCallActivity : AppCompatActivity() {
     private fun initiateCall() {
         if (!session!!.isSessionConnected) {
             session?.connect(TOKEN)
-//                iv_start_end_call?.setImageResource(R.drawable.ic_call_end)
+//          iv_start_end_call?.setImageResource(R.drawable.ic_call_end)
         } else {
             session?.disconnect()
-//                iv_start_end_call?.setImageResource(R.drawable.ic_call_start)
-
+//          iv_start_end_call?.setImageResource(R.drawable.ic_call_start)
         }
-
     }
 
     private fun initTokBoxSession() {
@@ -198,6 +190,7 @@ class VideoCallActivity : AppCompatActivity() {
             publisher?.startPreview()
         }
     }
+
     private fun initSubscriber(stream: Stream) {
         if (subscriber == null) {
             subscriber = Subscriber.Builder(this@VideoCallActivity, stream).build()
@@ -227,20 +220,15 @@ private var connectionListener: ConnectionListener? = object : ConnectionListene
 private var subscriberListener:SubscriberKit.SubscriberListener = object :  SubscriberKit.SubscriberListener{
     override fun onConnected(p0: SubscriberKit?) {
         Log.e("TAG", "Subscriber onConnected")
-
     }
 
     override fun onDisconnected(p0: SubscriberKit?) {
         Log.e("TAG", "Subscriber onDisconnected")
-
     }
 
     override fun onError(p0: SubscriberKit?, p1: OpentokError?) {
         Log.e("TAG", "Subscriber onError"+p1?.message)
-
     }
-
-
 }
     private var reconnectionListener = object : Session.ReconnectionListener{
         override fun onReconnecting(p0: Session?) {
@@ -266,13 +254,11 @@ private var subscriberListener:SubscriberKit.SubscriberListener = object :  Subs
         override fun onStreamVideoDimensionsChanged(p0: Session?, p1: Stream?, p2: Int, p3: Int) {}
 
         override fun onStreamVideoTypeChanged(p0: Session?, p1: Stream?, p2: Stream.StreamVideoType?) {
-
         }
     }
     private var publisherListener:PublisherKit.PublisherListener =object : PublisherKit.PublisherListener {
         override fun onStreamCreated(p0: PublisherKit?, p1: Stream?) {
             Log.i("TAG", "Publisher onStreamCreated")
-
         }
 
         override fun onStreamDestroyed(p0: PublisherKit?, p1: Stream?) {
@@ -310,7 +296,6 @@ private var  sessionListener:Session.SessionListener? = object :  Session.Sessio
     override fun onStreamReceived(p0: Session?, stream: Stream) {
         Log.e("TAG", "SessionListener onStreamReceived : ")
         initSubscriber(stream)
-
     }
     override fun onStreamDropped(p0: Session?, p1: Stream?) {
         Log.e("TAG", "SessionListener onStreamDropped : ")
@@ -352,7 +337,7 @@ private var  sessionListener:Session.SessionListener? = object :  Session.Sessio
         snackBarPermission= Snackbar.make(cl_root, getString(R.string.title_camera_and_audio_access), Snackbar.LENGTH_INDEFINITE)
         snackBarPermission?.view?.setBackgroundColor(ContextCompat.getColor(this,R.color.colorTurquoise))
         snackBarPermission?.setAction(getString(R.string.action_settings)) {
-              //  viewModel.isDeviceSettingVisited=true
+                //  viewModel.isDeviceSettingVisited=true
                 // open system setting screen ...
                 val intent = Intent()
                 intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
@@ -364,13 +349,11 @@ private var  sessionListener:Session.SessionListener? = object :  Session.Sessio
         snackBarPermission?.show()
     }
 
-
     override fun onResume() {
         super.onResume()
         if (session != null) {
             session?.onResume()
         }
-
 //        if (viewModel.isDeviceSettingVisited) {
 //
 //            if(viewModel.allPermStatus.value!="ALLOWED"){
@@ -380,6 +363,7 @@ private var  sessionListener:Session.SessionListener? = object :  Session.Sessio
 //            }
 //
 //        }
+
     }
 
     override fun onPause() {
@@ -388,12 +372,10 @@ private var  sessionListener:Session.SessionListener? = object :  Session.Sessio
             session?.onPause()
         }
     }
-
-
     override fun onBackPressed() {
         super.onBackPressed()
-
     }
+
 }
 
 

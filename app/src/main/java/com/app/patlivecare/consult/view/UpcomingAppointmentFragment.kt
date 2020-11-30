@@ -282,11 +282,7 @@ class UpcomingAppointmentFragment : BaseFragment() {
             UpcomingAppointmentAdapter.OnItemClickListener {
             override fun onItemClick(item: AppointmentInfo?) {}
 
-            override fun onItemMoreClick(
-                item: AppointmentInfo?,
-                adapterPosition: Int,
-                view: ImageButton
-            ) {
+            override fun onItemMoreClick(item: AppointmentInfo?, adapterPosition: Int, view: ImageButton) {
                 val popupMenu = PopupMenu(view.context, view)
                 val menu = popupMenu.menu
                 menu.add(0, 1, 0, getString(R.string.action_cancel_request))

@@ -120,7 +120,7 @@ class SignInViewModel(application: Application) : AndroidViewModel(application) 
                     val errorMsg: String? = ErrorHandler.reportError(exception)
                     resultantSignIn.value= WebResponse(Status.FAILURE, null, errorMsg)
                 }
-                .collect {result->
+                .collect { result->
                     if(result.status)
                         resultantSignIn.value= WebResponse(Status.SUCCESS, result, null)
                     else

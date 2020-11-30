@@ -3,6 +3,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -41,6 +43,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import kotlinx.android.synthetic.main.fragment_sign_in.*
+import kotlinx.android.synthetic.main.fragment_sign_in.edt_password
+import kotlinx.android.synthetic.main.fragment_sign_in.ibtn_password_eye
+import kotlinx.android.synthetic.main.fragment_sign_up_six.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 class SignInFragment : BaseFragment() {
@@ -114,22 +119,21 @@ class SignInFragment : BaseFragment() {
                 }
             }
         })
-        edt_password?.addTextChangedListener(object : BaseTextWatcher() {
-            override fun onTextChanged(start: Int, before: Int, count: Int, s: CharSequence?) {
-
-                if (s!!.isNotEmpty()) {
-                    edt_password?.setCompoundDrawablesWithIntrinsicBounds(
-                        0,
-                        0,
-                        R.drawable.ic_tick_green,
-                        0
-                    );
-                } else {
-                    edt_password?.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                }
-            }
-        })
-
+//      edt_password?.addTextChangedListener(object : BaseTextWatcher() {
+//            override fun onTextChanged(start: Int, before: Int, count: Int, s: CharSequence?) {
+//
+//                if (s!!.isNotEmpty()) {
+//                    edt_password?.setCompoundDrawablesWithIntrinsicBounds(
+//                        0,
+//                        0,
+//                        R.drawable.ic_tick_green,
+//                        0
+//                    );
+//                } else {
+//                    edt_password?.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+//                }
+//            }
+//        })
     }
 
     private fun initListener() {
@@ -141,7 +145,6 @@ class SignInFragment : BaseFragment() {
         }
 
         btn_sign_in?.setOnClickListener {
-
             attemptSignIn()
         }
 
@@ -162,6 +165,25 @@ class SignInFragment : BaseFragment() {
             true
         }
 
+        // hide password
+        ibtn_password_eye.isSelected = true
+        edt_password?.transformationMethod = PasswordTransformationMethod.getInstance()
+        ibtn_password_eye?.setOnClickListener {
+            if (ibtn_password_eye.isSelected) {
+                ibtn_password_eye.isSelected = false
+                // show password
+                edt_password?.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                if (edt_password.text != null && edt_password.text?.length != 0)
+                    edt_password.text?.length?.let { it1 -> edt_password.setSelection(it1) }
+            } else {
+                ibtn_password_eye.isSelected = true
+                // hide password
+                edt_password?.transformationMethod = PasswordTransformationMethod.getInstance()
+                if (edt_password.text != null && edt_password.text?.length != 0)
+                    edt_password.text?.length?.let { it1 -> edt_password.setSelection(it1) }
+            }
+
+        }
 
         ll_google_login?.setOnClickListener {
             viewModel.loadGoogle.value=true
